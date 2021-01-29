@@ -1,0 +1,33 @@
+{
+    "name": "ctf",
+    "version": "1.0.0",
+    "description": "Confessing the Faith",
+    "main": "index.js",
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "start": "next start",
+        "git-commit": "npm run build && git add . && git commit -am. && git push"
+    },
+    "author": "CBTS",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^8.2.0",
+        "next": "^9.5.1",
+        "next-redux-wrapper": "^6.0.2",
+        "nodemailer": "^6.4.17",
+        "react": "^16.13.1",
+        "react-accessible-accordion": "^3.3.1",
+        "react-dom": "^16.13.1",
+        "react-modal-video": "^1.2.5",
+        "react-owl-carousel3": "^2.2.5",
+        "react-player": "^2.8.2",
+        "react-redux": "^7.2.1",
+        "react-select": "^3.1.0",
+        "react-toastify": "^6.0.8",
+        "redux": "^4.0.5",
+        "redux-devtools-extension": "^2.13.8",
+        "redux-thunk": "^2.3.0",
+        "sass": "^1.26.10"
+    }
+}
