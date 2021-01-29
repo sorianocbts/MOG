@@ -8,6 +8,8 @@ services:
       - '3000:3000'
     # expose:
     #   - 443
+    volumes:
+      - ./.env:/usr/src/app
     restart: always
 #     volumes: ['./:/var/www/html']
     environment:
