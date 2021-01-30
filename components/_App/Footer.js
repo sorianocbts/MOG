@@ -17,9 +17,12 @@ const Footer = () => {
                 },
                 body: JSON.stringify({ pass: process.env.TEMP_POST_PASS, email: subEmail })
             })
+
             return response.json()
         }
         postData()
+        alert('Thank you!');
+        setSubEmail('');
     }
     return (
         <React.Fragment>
@@ -69,7 +72,7 @@ const Footer = () => {
                                 <div className="newsletter-wrap">
                                     <h3>Subscribe Newsletter</h3>
                                     <form className="newsletter-form" onSubmit={(e) => handleSub(e)}>
-                                        <input type="email" className="form-control" placeholder="Enter email address" name="email" required onChange={(e) => setSubEmail(e.target.value)} />
+                                        <input type="email" className="form-control" placeholder="Enter email address" name="email" value={subEmail} required onChange={(e) => setSubEmail(e.target.value)} />
 
                                         <button className="send-btn" type="submit">
                                             <i className="bx bx-right-arrow-alt"></i>
