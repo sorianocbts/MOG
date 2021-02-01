@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-
+import ScrollableAnchor from 'react-scrollable-anchor'
 const Footer = () => {
     const currentYear = new Date().getFullYear();
     // // const [subEmail, setSubEmail] = React.useState('')
@@ -26,7 +26,8 @@ const Footer = () => {
     // }
     return (
         <React.Fragment>
-            <footer className="footer-top-area pt-100" id="#contact">
+
+            <footer className="footer-top-area pt-100" id="#footer">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-5 col-md-6 d-flex flex-column justify-content-center">
@@ -44,8 +45,9 @@ const Footer = () => {
 
                         <div className="col-lg-3 col-md-6">
                             <div className="single-widget">
-                                <h3>Contact Us</h3>
-
+                                <ScrollableAnchor id={'footer-section'}>
+                                    <h3>Contact Us</h3>
+                                </ScrollableAnchor>
                                 <ul className="address">
                                     <li>
                                         <i className="flaticon-pin"></i>

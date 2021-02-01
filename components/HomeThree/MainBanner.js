@@ -1,9 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import ModalVideo from 'react-modal-video';
+// import ModalVideo from 'react-modal-video';
 import ReactPlayer from 'react-player/vimeo'
 import useWindowSize from '../../hooks/useWindowSize'
-
+import { ArrowDownCircle } from 'react-feather';
+import { goToAnchor } from 'react-scrollable-anchor'
 const MaminBanner = () => {
     const [isOpen, setIsOpen] = React.useState(true);
     const openModal = () => {
@@ -59,6 +60,16 @@ const MaminBanner = () => {
                                                     <div className={`follow-btn rounded`}>
                                                         <span>Follow Us</span>
                                                     </div>
+                                                </a>
+                                            </Link>
+                                        </div>
+                                        <div className={`d-flex`} style={{ marginTop: '46px' }}>
+                                            <Link href="#footer-section" >
+                                                <a
+                                                    style={{ color: '#fff', fontSize: '24px' }}
+                                                >
+                                                    <ArrowDownCircle width='200px' height='40px' color='#fce14f' onClick={() => goToAnchor('footer-section')} />
+
                                                 </a>
                                             </Link>
                                         </div>
