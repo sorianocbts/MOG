@@ -9,13 +9,13 @@ const Contact = () => {
     return (
         <React.Fragment>
             <Navbar />
-            <PageBanner 
-                pageTitle="Contact Us" 
-                homePageUrl="/" 
-                homePageText="Home" 
-                activePageText="Contact Us" 
-                imgClass="bg-2" 
-            />    
+            <PageBanner
+                pageTitle="Contact Us"
+                homePageUrl="/"
+                homePageText="Home"
+                activePageText="Contact Us"
+                imgClass="bg-2"
+            />
             <GoogleMap />
             <ContactForm />
             <Footer />

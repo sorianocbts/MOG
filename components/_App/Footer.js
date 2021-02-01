@@ -55,13 +55,11 @@ const Footer = () => {
                                     </li>
                                     <li>
                                         <i className="flaticon-email-1"></i>
-                                        <a href="mailto:hello@vivi.com">
-                                            info@confessingthefaith.com
-                                        </a>
+                                        <a href="mailto:info@confessingthefaith.com">info@confessingthefaith.com</a>
                                     </li>
                                     <li>
                                         <i className="flaticon-phone-call"></i>
-                                        <a href="tel:+270-925-6992">
+                                        <a href="tel:270-925-6992">
                                             (270) 925 6992
                                         </a>
                                     </li>

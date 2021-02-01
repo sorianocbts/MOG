@@ -7,14 +7,18 @@ var transporter = nodemailer.createTransport({
         pass: `${process.env.EMAIL_PASS}`
     }
 });
-
 function ctfSub(event) {
     transporter.sendMail(
         {
             from: process.env.EMAIL,
             to: [`${process.env.SUBS_EMAIL}`],
-            subject: `New Subscriber from confessingthefaith.com`,
-            html: `<p>Subscribe this email to your Newsletter: ${event.email}.<br/></p>`
+            subject: `Contact from confessingthefaith.com`,
+            html: `<p>${event.user.name}.<br/>
+                        ${event.user.email}.<br/>
+                        ${event.user.phone_number}.<br/>
+                        ${event.user.msg_subject}.<br/>
+                        ${event.user.msg}.<br/>
+                    </p>`
         },
         function (error, info) {
             if (error) {
@@ -29,7 +33,7 @@ function ctfSub(event) {
 export default function handler(req, res) {
     if (req.method === 'POST' && req.body.pass === process.env.TEMP_POST_PASS) {
         let event = {
-            email: req.body.email
+            user: req.body.user
         }
         ctfSub(event)
         res.statusCode = 200
