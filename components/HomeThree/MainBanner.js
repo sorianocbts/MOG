@@ -23,13 +23,13 @@ const MaminBanner = () => {
     fonSizes()
     return (
         <React.Fragment>
-            <div className="banner-area jarallax">
+            <div className="banner-area jarallax" style={{ minHeight: '900px' }}>
                 <div className="d-table">
                     <div className="d-table-cell">
                         <div className="container-fluid">
-                            <div className="row align-items-center">
+                            <div className="row align-items-center justify-content-center">
 
-                                <div className="col-lg-3 left-col">
+                                <div className="col-lg-3 left-col" > {/*style={{ marginLeft: '10px' }}*/}
                                     <div className="banner-text">
                                         <h1 style={{ letterSpacing: '1.5px' }}>A theological &</h1>
                                         <h1>Devotional Walk</h1>
@@ -157,7 +157,7 @@ const MaminBanner = () => {
                             min-height: 100% !important;
                         }
                         .left-col {
-                            height: 900px;
+                            height: 750px;
                             display: flex;
                             flex-direction: column;
                             justify-content: flex-start;
@@ -203,12 +203,12 @@ const MaminBanner = () => {
                 }
                 @media (min-width: 1680px) {
                     .left-col {
-                        flex: 0 0 25%;
-                        max-width: 25%;
+                        flex: 0 0 30%;
+                        max-width: 30%;
                     }
                     .right-col {
-                        flex: 0 0 75%;
-                        max-width: 75%;
+                        flex: 0 0 70%;
+                        max-width: 60%;
                     }
                 }
             `}</style>
