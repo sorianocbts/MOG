@@ -883,6 +883,22 @@
   }
 }
 
+.logo {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logo a {
+  text-align: center;
+}
+
+.footer-logo {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
 /* Max width 575px */
 @media only screen and (max-width: 575px) {
   .navbar-area .container-fluid {
@@ -1750,6 +1766,7 @@
   .banner-area .banner-text h1 {
     font-size: 60px;
     margin-bottom: 0;
+    line-height: .8;
   }
   .banner-area .banner-img {
     left: -500px;

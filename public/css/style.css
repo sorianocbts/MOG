@@ -41,8 +41,9 @@ Default Style
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
 body {
   font-size: 15px;
-  font-family: "Oswald", sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   color: #676a6a;
+  min-width: 355px;
 }
 
 a {
@@ -354,7 +355,7 @@ Nav Area Style
 }
 
 .navbar-area .main-nav {
-  background-color: #ffffff;
+  background-color: #fce14f;
   padding-top: 0;
   padding-bottom: 0;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
@@ -377,8 +378,8 @@ Nav Area Style
 }
 
 .navbar-area .main-nav nav .navbar-nav .nav-item a {
-  font-size: 15px;
-  color: #676a6a;
+  font-size: 35px;
+  color: black;
   text-transform: uppercase;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -2088,6 +2089,10 @@ Footer Top Area Style
   margin-bottom: 30px;
 }
 
+.single-widget .footer-logo {
+  max-width: 85% !important;
+}
+
 .single-widget .social-wrap li {
   display: inline-block;
   padding-right: 10px;
@@ -2733,7 +2738,7 @@ Nav Area Three Style
 Banner Area Three Style
 ======================================================*/
 .banner-area {
-  background-image: url(/img/banner/black2.jpg);
+  background-color: black;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2752,32 +2757,13 @@ Banner Area Three Style
   text-align: center;
 }
 
-.banner-area .banner-video .reactplayer {
-  height: 1000px !important;
-  width: 110% !important;
-  min-height: 100% !important;
-}
-
 .banner-area .banner-video a i {
   font-size: 100px;
   color: #ffffff;
 }
 
-.banner-area .right-col {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
 .banner-area .banner-text {
-  text-align: center;
+  text-align: justify;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2792,58 +2778,41 @@ Banner Area Three Style
 
 .banner-area .banner-text h1 {
   color: #ffffff;
-  font-size: 36px;
-  line-height: .9;
+  font-family: 'Bebas Neue';
+  font-size: 70px;
+  line-height: .7;
+  font-weight: 400;
 }
 
 .banner-area .banner-text h2 {
   color: #ffffff;
-  font-size: 30px;
-  line-height: .9;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 0;
+  letter-spacing: .5px;
 }
 
 .banner-area .banner-text h3 {
   text-align: center;
-  color: #ffffff;
-  font-size: 28px;
-  font-weight: 600;
-  text-transform: capitalize !important;
+  color: #fce14f;
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 5px;
+  margin-bottom: 0px !important;
 }
 
 .banner-area .banner-text h4 {
   text-align: center;
   color: #ffffff;
-  font-size: 24px;
-  font-weight: 600;
-  text-transform: capitalize !important;
+  font-size: 38px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.5;
 }
 
-.banner-area .banner-text .lbcf-btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin: 10px auto;
-  background-color: #ECC94B !important;
-}
-
-.banner-area .banner-text .lbcf-btn h1 {
-  color: black;
-  font-family: 'Vesper Libre';
-  font-size: 156px;
-  font-weight: 600;
-  margin: 16px 0 0 0;
-  line-height: 50px;
-  padding: 50px 3.5rem;
+.banner-area .banner-text .lbcf-btn img {
+  width: 400px;
+  height: 230px;
 }
 
 .banner-area .play-btn {
@@ -2861,6 +2830,8 @@ Banner Area Three Style
 
 .banner-area .play-btn span {
   margin: auto .5rem;
+  font-size: 24px;
+  font-weight: 400;
 }
 
 .banner-area .play-btn .follow-btn {
@@ -2874,7 +2845,8 @@ Banner Area Three Style
 
 .banner-area .play-btn .follow-btn span {
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 400;
+  padding-top: 4px;
   color: #ffffff;
 }
 
@@ -3934,7 +3906,7 @@ Counter Area Style
 }
 
 .counter-area .single-counter p {
-  font-family: "Oswald", sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   font-size: 15px;
   font-weight: 600;
   text-transform: uppercase;

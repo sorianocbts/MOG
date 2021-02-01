@@ -38,6 +38,9 @@ const Navbar = () => {
 
     return (
         <React.Fragment>
+            <style>{`
+            
+            `}</style>
             <div id="navbar" className="navbar-area">
                 <div className="main-nav">
                     <div className="container-fluid">
@@ -45,6 +48,7 @@ const Navbar = () => {
                             <Link href="/">
                                 <a onClick={toggleNavbar} className="navbar-brand">
                                     <img src="/img/banner/moglogo.png" alt="logo" />
+                                    <img style={{ marginLeft: '8px', minWidth: '105px', height: '30px' }} src="/img/banner/ctfheader.png" alt="logo" />
                                 </a>
                             </Link>
 

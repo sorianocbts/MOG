@@ -3,37 +3,37 @@ import Link from 'next/link';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
-    const [subEmail, setSubEmail] = React.useState('')
-    const handleSub = (e) => {
-        e.preventDefault()
-        async function postData() {
-            const response = await fetch('/api/sendSub', {
-                method: 'POST',
-                mode: 'cors',
-                cache: 'no-cache',
-                credentials: 'same-origin',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ pass: process.env.TEMP_POST_PASS, email: subEmail })
-            })
+    // // const [subEmail, setSubEmail] = React.useState('')
+    // // const handleSub = (e) => {
+    // //     e.preventDefault()
+    // //     async function postData() {
+    // //         const response = await fetch('/api/sendSub', {
+    // //             method: 'POST',
+    // //             mode: 'cors',
+    // //             cache: 'no-cache',
+    // //             credentials: 'same-origin',
+    // //             headers: {
+    // //                 'Content-Type': 'application/json'
+    // //             },
+    // //             body: JSON.stringify({ pass: process.env.TEMP_POST_PASS, email: subEmail })
+    // //         })
 
-            return response.json()
-        }
-        postData()
-        alert('Thank you!');
-        setSubEmail('');
-    }
+    // //         return response.json()
+    // //     }
+    // //     postData()
+    // //     alert('Thank you!');
+    // //     setSubEmail('');
+    // }
     return (
         <React.Fragment>
-            <footer className="footer-top-area pt-100 pb-70" id="#contact">
+            <footer className="footer-top-area pt-100" id="#contact">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-3 col-md-6">
+                        <div className="col-lg-5 col-md-6 d-flex flex-column justify-content-center">
                             <div className="single-widget">
                                 <div className="logo">
                                     <Link href="/">
-                                        <a><img src="/img/banner/moglogowhite.png" alt="Image" /></a>
+                                        <a><img className={`footer-logo`} src="/img/banner/ctffooter.png" alt="Image" /></a>
                                     </Link>
                                 </div>
                             </div>
@@ -64,10 +64,36 @@ const Footer = () => {
                                         </a>
                                     </li>
                                 </ul>
+
                             </div>
+                            <div className="single-widget">
+                                <ul className="social-wrap">
+                                    <li>
+                                        <a href="https://twitter.com/cbtseminary" target="_blank" rel="noopener noreferrer">
+                                            <i className="bx bxl-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/cbtseminary/" target="_blank" rel="noopener noreferrer">
+                                            <i className="bx bxl-instagram"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.facebook.com/watch/CBTSeminary/" target="_blank" rel="noopener noreferrer">
+                                            <i className="bx bxl-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com/c/CBTSeminary?sub_confirmation=1" target="_blank" rel="noopener noreferrer">
+                                            <i className="bx bxl-youtube"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
                         </div>
 
-                        <div className="col-lg-3 col-md-6">
+                        {/* <div className="col-lg-3 col-md-6">
                             <div className="single-widget">
                                 <div className="newsletter-wrap">
                                     <h3>Subscribe Newsletter</h3>
@@ -102,7 +128,7 @@ const Footer = () => {
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> */}
 
                         {/* <div className="col-lg-3 col-md-6">
                             <div className="single-widget">

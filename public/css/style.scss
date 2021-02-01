@@ -43,7 +43,8 @@ Default Style
 @import url('https://fonts.googleapis.com/css2?family=Vesper+Libre:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
-$body-font-family : 'Oswald', sans-serif;
+// $body-font-family : 'Oswald', sans-serif;
+$body-font-family : 'Bebas Neue', sans-serif;
 $paragraph-font-family : 'Open Sans', sans-serif;
 
 $main-color: #272b2b;
@@ -53,11 +54,14 @@ $black-color: #000000;
 $box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
 $transition: all 0.5s;
 $border-radius: 4px;
+//custom
+$brand-color: #fce14f;
 
 body {
     font-size: 15px;
     font-family: $body-font-family;
 	color: $body-color;
+	min-width: 355px;
 }
 a {
 	display: inline-block;
@@ -313,7 +317,7 @@ Nav Area Style
 	z-index: 999;
 	width: 100%;
 	.main-nav {
-		background-color: $white-color; //-----------
+		background-color: $brand-color; //-----------
 		padding-top: 0;
 		padding-bottom: 0;
 		box-shadow: $box-shadow;
@@ -332,8 +336,8 @@ Nav Area Style
 					position: relative;
 					padding: 15px 0;
 					a {
-						font-size: 15px;
-						color: $body-color;
+						font-size: 35px;
+						color: black;
 						text-transform: uppercase;
 						transition: $transition;
 						font-weight: 700;
@@ -1874,6 +1878,9 @@ Footer Top Area Style
 	.logo {
 		margin-bottom: 30px;
 	}
+	.footer-logo {
+		max-width: 85% !important;
+	}
 	
 	.social-wrap {
 		li {
@@ -2468,7 +2475,7 @@ Nav Area Three Style
 Banner Area Three Style
 ======================================================*/
 .banner-area {
-	background-image: url(/img/banner/black2.jpg);
+	background-color: black;
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -2482,13 +2489,6 @@ Banner Area Three Style
 	}
 	.banner-video {
 		text-align: center;
-		// margin-top: 68px;
-		.reactplayer {
-			// width: 780px !important;
-			height:1000px !important;
-			width: 110% !important;
-			min-height: 100% !important;
-		}
 		a {
 			i {
 				font-size: 100px;
@@ -2496,58 +2496,57 @@ Banner Area Three Style
 			}
 		}
 	}
-	.right-col {
-		// height: 100px;
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-	}
+	// .left-col {
+	// 	height: 900px;
+	// 	display: flex;
+	// 	flex-direction: column;
+	// 	justify-content: flex-start;
+	// }
 	.banner-text {
-		text-align: center;
+		text-align: justify;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		h1 {
 			color: $white-color;
-			font-size: 36px;
-			line-height: .9;
+			font-family: 'Bebas Neue';
+			font-size: 70px;
+			line-height: .7;
+			font-weight: 400;
+			
 		}
 		h2 {
 			color: $white-color;
-			font-size: 30px;
-			line-height: .9;
+			font-size: 50px;
+			font-weight: 400;
+			line-height: 0;
+			letter-spacing: .5px;
 		}
 		h3 {
 			text-align: center;
-			color: $white-color;
-			font-size: 28px;
-			font-weight: 600;
-			text-transform: capitalize !important;
+			color: $brand-color;
+			font-size: 40px;
+			font-weight: 400;
+			letter-spacing:5px;
+			margin-bottom: 0px !important;
 		}
 		h4 {
 			text-align: center;
 			color: $white-color;
-			font-size: 24px;
-			font-weight: 600;
-			text-transform: capitalize !important;
+			font-size: 38px;
+			font-weight: 400;
+			letter-spacing: 1px;
+			line-height: 1.5;
 		}
 		.lbcf-btn {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			margin: 10px auto;
-			background-color: #ECC94B !important;
-			
-			h1 {
-				color: black;
-				font-family: 'Vesper Libre';
-				font-size: 156px;
-				font-weight: 600;
-				margin:16px 0 0 0 ;
-   				line-height:50px;
-				padding: 50px 3.5rem;
-				
+			// display: flex;
+			// flex-direction: column;
+			// align-items: center;
+			// justify-content: center;
+			// margin: 10px auto;
+			img {
+				width: 400px;
+				height: 230px;
 			}
 		}
 	}
@@ -2558,6 +2557,8 @@ Banner Area Three Style
 		margin-top: 2rem !important;
 			span {
 				margin: auto .5rem;
+				font-size: 24px;
+				font-weight: 400;
 			}
 			.follow-btn{
 				background-color: #ECC94B !important;
@@ -2566,7 +2567,8 @@ Banner Area Three Style
 				padding: .2rem .5rem .3rem .5rem;
 				span {
 					font-size: 24px;
-					font-weight: 600;
+					font-weight: 400;
+					padding-top: 4px;
 					color: $white-color;
 				}
 			}
