@@ -12,6 +12,8 @@ import LatestNews from '../components/HomeThree/LatestNews';
 import Partners from '../components/Common/Partners';
 import AwardWinningMovies from '../components/HomeThree/AwardWinningMovies';
 import Footer from '../components/_App/Footer';
+import VideoAccordion from '../components/HomeThree/VideoAccordion';
+import ContactForm from '../components/HomeThree/ContactForm';
 
 const Index3 = () => {
     return (
@@ -28,6 +30,8 @@ const Index3 = () => {
             {/* <AwardWinningMovies /> */}
             {/* <LatestNews /> */}
             {/* <Partners /> */}
+            <VideoAccordion />
+            <ContactForm />
             <Footer />
         </React.Fragment>
     )

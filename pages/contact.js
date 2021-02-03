@@ -16,7 +16,7 @@ const Contact = () => {
                 activePageText="Contact Us"
                 imgClass="bg-2"
             />
-            <GoogleMap />
+            {/* <GoogleMap /> */}
             <ContactForm />
             <Footer />
         </React.Fragment>

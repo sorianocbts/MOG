@@ -62,6 +62,7 @@ body {
     font-family: $body-font-family;
 	color: $body-color;
 	min-width: 355px;
+	background-color: black;
 }
 a {
 	display: inline-block;
@@ -588,7 +589,7 @@ Nav Area Style
 // Navbar toggler 
 .navbar-toggler {
     border: none;
-    background: #eee !important;
+    // background: #eee !important;
     padding: 10px;
     border-radius: 0;
 
@@ -2483,6 +2484,7 @@ Banner Area Three Style
 	position: relative;
 	z-index: 1;
 	overflow: hidden;
+	margin-bottom:4rem;
 	.container-fluid {
 		padding-left: 50px;
 		padding-right: 50px;

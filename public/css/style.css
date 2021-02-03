@@ -44,6 +44,7 @@ body {
   font-family: "Bebas Neue", sans-serif;
   color: #676a6a;
   min-width: 355px;
+  background-color: black;
 }
 
 a {
@@ -640,7 +641,6 @@ Nav Area Style
 
 .navbar-toggler {
   border: none;
-  background: #eee !important;
   padding: 10px;
   border-radius: 0;
 }
@@ -2746,6 +2746,7 @@ Banner Area Three Style
   position: relative;
   z-index: 1;
   overflow: hidden;
+  margin-bottom: 4rem;
 }
 
 .banner-area .container-fluid {

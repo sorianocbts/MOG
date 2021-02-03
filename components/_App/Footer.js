@@ -1,36 +1,40 @@
 import React from 'react';
 import Link from 'next/link';
 import ScrollableAnchor from 'react-scrollable-anchor'
+import useForm from '../../hooks/useForm'
+import ContactForm from '../Contact/ContactForm';
 const Footer = () => {
     const currentYear = new Date().getFullYear();
-    // // const [subEmail, setSubEmail] = React.useState('')
-    // // const handleSub = (e) => {
-    // //     e.preventDefault()
-    // //     async function postData() {
-    // //         const response = await fetch('/api/sendSub', {
-    // //             method: 'POST',
-    // //             mode: 'cors',
-    // //             cache: 'no-cache',
-    // //             credentials: 'same-origin',
-    // //             headers: {
-    // //                 'Content-Type': 'application/json'
-    // //             },
-    // //             body: JSON.stringify({ pass: process.env.TEMP_POST_PASS, email: subEmail })
-    // //         })
+    const [user, handleChange] = useForm({ name: "", email: "", phone_number: "", msg_subject: "", msg: "" });
 
-    // //         return response.json()
-    // //     }
-    // //     postData()
-    // //     alert('Thank you!');
-    // //     setSubEmail('');
-    // }
+    const handleSub = (e) => {
+        e.preventDefault()
+        async function postData() {
+            const response = await fetch('/api/sendSub', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ pass: process.env.TEMP_POST_PASS, user })
+            })
+
+            return response.json()
+        }
+        postData()
+        alert('Thank you!');
+        Router.reload();
+    }
     return (
         <React.Fragment>
 
             <footer className="footer-top-area pt-100" id="#footer">
-                <div className="container">
+                <div className="container justify-content-center align-items-center">
                     <div className="row">
-                        <div className="col-lg-5 col-md-6 d-flex flex-column justify-content-center">
+                        <div className={`col-lg-1 col-md-0`}></div>
+                        <div className="col-lg-6 col-md-6 d-flex flex-column justify-content-center align-items-center">
                             <div className="single-widget">
                                 <div className="logo">
                                     <Link href="/">
@@ -217,7 +221,7 @@ const Footer = () => {
                     </div>
                 </div>
             </footer>
-        </React.Fragment>
+        </React.Fragment >
     );
 }
 

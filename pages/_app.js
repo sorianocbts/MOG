@@ -7,12 +7,13 @@ import 'react-toastify/dist/ReactToastify.css'
 import 'react-accessible-accordion/dist/fancy-example.css'
 import '../public/css/style.css'
 import '../public/css/responsive.css'
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Provider } from 'react-redux'
 import Layout from '../components/_App/Layout'
 import { useStore } from '../store/reducers/reducers'
 
-const MyApp =  ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps }) => {
     const store = useStore(pageProps.initialReduxState)
     return (
         <Layout>

@@ -2,8 +2,10 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import Link from '../../utils/ActiveLink';
 import SidebarModal from './SidebarModal';
+import { goToAnchor, configureAnchors } from 'react-scrollable-anchor'
 
 const Navbar = () => {
+    configureAnchors({ offset: -170, scrollDuration: 500 })
     const dispatch = useDispatch()
     const products = useSelector((state) => state.addedItems)
     const collapsed = useSelector((state) => state.collapsedState)
@@ -232,14 +234,14 @@ const Navbar = () => {
                                         </ul>
                                     </li> */}
 
-                                    <li className="nav-item">
+                                    {/*  <li className="nav-item">
                                         <Link href="#">
                                             <a onClick={e => e.preventDefault()} className="nav-link">
-                                                Blog {/* <i className='bx bx-chevron-down'></i> */}
+                                                Blog  <i className='bx bx-chevron-down'></i> 
                                             </a>
                                         </Link>
 
-                                        {/* <ul className="dropdown-menu">
+                                        <ul className="dropdown-menu">
                                             <li className="nav-item">
                                                 <Link href="/blog-grid" activeClassName="active">
                                                     <a onClick={toggleNavbar} className="nav-link">Blog Grid</a>
@@ -263,12 +265,17 @@ const Navbar = () => {
                                                     <a onClick={toggleNavbar} className="nav-link">Blog Details</a>
                                                 </Link>
                                             </li>
-                                        </ul> */}
+                                        </ul> 
+                                    </li>*/}
+                                    <li className="nav-item">
+                                        <Link href="#video-index" activeClassName="active" >
+                                            <a onClick={() => goToAnchor('video-index')} className="nav-link">Index</a>
+                                        </Link>
                                     </li>
 
                                     <li className="nav-item">
-                                        <Link href="/contact" activeClassName="active">
-                                            <a onClick={toggleNavbar} className="nav-link">Contact</a>
+                                        <Link href="#contactForm" activeClassName="active" >
+                                            <a onClick={() => goToAnchor('contactForm')} className="nav-link">Contact</a>
                                         </Link>
                                     </li>
                                 </ul>
@@ -306,7 +313,7 @@ const Navbar = () => {
 
             {/* Sidebar Modal */}
             <SidebarModal />
-        </React.Fragment>
+        </React.Fragment >
     );
 }
 

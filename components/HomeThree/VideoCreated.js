@@ -9,14 +9,14 @@ const VideoCreated = () => {
     }
     return (
         <React.Fragment>
-            <div className="video-created-area-three bg-color-two pb-100">
+            <div className="video-created-area-three bg-color-two pb-100 pt-100"> {/*TODO! conditional padding*/}
                 <div className="container-fluid">
                     <div className="row align-items-center">
                         <div className="col-lg-3 col-md-3 p-0">
                             <div className="video-img">
-                                <img src="/img/video-created/video-created1.jpg" alt="Image"/>
+                                <img src="/img/video-created/video-created1.jpg" alt="Image" />
 
-                                <h3>Video Created By Vivi</h3>
+                                <h3>CTF</h3>
                             </div>
                         </div>
 
@@ -26,9 +26,9 @@ const VideoCreated = () => {
 
                                 <Link href="#play-video">
                                     <a
-                                        onClick={e => {e.preventDefault(); openModal()}}
+                                        onClick={e => { e.preventDefault(); openModal() }}
                                         className="popup-youtube"
-                                    > 
+                                    >
                                         <i className="flaticon-play"></i>
                                     </a>
                                 </Link>
@@ -45,14 +45,14 @@ const VideoCreated = () => {
             </div>
 
             {/* If you want to change the video need to update videoID */}
-            <ModalVideo 
-                channel='youtube' 
-                isOpen={!isOpen} 
-                videoId='bk7McNUjWgw' 
-                onClose={() => setIsOpen(!isOpen)} 
+            <ModalVideo
+                channel='youtube'
+                isOpen={!isOpen}
+                videoId='bk7McNUjWgw'
+                onClose={() => setIsOpen(!isOpen)}
             />
         </React.Fragment>
-        
+
     )
 }
 
