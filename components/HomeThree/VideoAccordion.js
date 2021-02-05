@@ -57,7 +57,7 @@ function VideoAccordion({ data }) {
                     <h1 className={`index-header`} id="video-index">CTF Video Index</h1>
                     {videos.map((x, idx) => (
                         // < >
-                        <Card key={idx} className={`shadow-lg`} style={{ border: '1pxsolid rgba(0,0,0,.70)' }}>
+                        <Card key={idx} className={`shadow-lg`} style={{ border: '1px solid rgba(0,0,0,.70)' }}>
                             {/* <Card.Header className={`cardheader`} style={{ backgroundColor: 'black' }} > */}
                             {/* <Accordion.Toggle as={Button} variant="link" eventKey={`${idx}`} style={{ color: '#fff', border: 'none', outline: 'none' }} > */}
                             <Accordion.Toggle as={Card.Header} variant="link" eventKey={`${idx}`} style={{ backgroundColor: '#fce14f', color: 'black', fontSize: '20px', border: 'none', outline: 'none' }} >
