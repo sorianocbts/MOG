@@ -7,7 +7,6 @@ import useWindowSize from '../../hooks/useWindowSize';
 function VideoAccordion({ data }) {
     const [width, height] = useWindowSize()
     let videos = _transformVideoObject(data);
-
     if (!data || !videos) {
         return (
             <>
@@ -66,8 +65,8 @@ function VideoAccordion({ data }) {
                             {x.episodes.map((episode, idx2) => (
                                 // <>
                                 <Accordion.Collapse eventKey={`${idx}`} key={idx2} >
-                                    <Link href={`//youtube.com/watch?v=${episode.id}`}>
-                                        <a className={`w-100`}>
+                                    <Link href={`//www.youtube.com/watch?v=${episode.videoId}`} passHref={true} prefetch={false}>
+                                        <a target="_blank" rel="noreferrer" className={`w-100`}>
                                             <Card.Body className={`shadow-sm pl-5`}>
                                                 <li style={{ fontSize: '18px', letterSpacing: '1.2px' }}>
                                                     {episode.title}
@@ -89,93 +88,6 @@ function VideoAccordion({ data }) {
 export default VideoAccordion
 
 
-
-
-const ctfData = [
-    {
-        chapter: 1,
-        episodes: [
-            {
-                title: "1689 Chapter 1: Of Scripture - Introduction",
-                linkUrl: '/'
-            },
-            {
-                title: "The Necessity of Scripture Asserted | Confessing the Faith", linkUrl: '/'
-            },
-            {
-                title: "The Necessity of Scripture Grounded | Confessing the Faith", linkUrl: '/'
-            },
-            {
-                title: "The Necessity of Scripture, What it Presupposes | Confessing the Faith", linkUrl: '/'
-            },
-            {
-                title: "The Necessity of Scripture Explained | Confessing the Faith", linkUrl: '/'
-            },
-            {
-                title: "Why Scripture is Authoritative | Confessing the Faith", linkUrl: '/'
-            },
-        ]
-    },
-    {
-        chapter: 2,
-        episodes: [
-            {
-                title: "Divine Singularity, Aseity, Incomprehensibility, & Simplicity | Confessing the Faith", linkUrl: '/'
-
-            },
-            {
-                title: "Divine Infinity, Sovereignty, Love, & Justice | Confessing the Faith", linkUrl: '/'
-            },
-            {
-                title: "God's Relation to the World & Mankind | Confessing the Faith", linkUrl: '/'
-            },
-            {
-                title: "The Father, The Son, & The Holy Spirit | Confessing the Faith", linkUrl: '/'
-            },
-            {
-                title: "The Father is God, the Son is God, & the Spirit is God | Confessing the Faith", linkUrl: '/'
-            },
-            {
-                title: "The Foundation of All Our Communion with God & Comfortable Dependence Upon Him", linkUrl: '/'
-            },
-        ]
-    }, {
-        chapter: 3,
-        episodes: [
-            {
-                title: "Divine Singularity, Aseity, Incomprehensibility, & Simplicity | Confessing the Faith", linkUrl: '/'
-
-            },
-            {
-                title: "Divine Infinity, Sovereignty, Love, & Justice | Confessing the Faith", linkUrl: '/'
-            },
-            {
-                title: "God's Relation to the World & Mankind | Confessing the Faith", linkUrl: '/'
-            },
-            {
-                title: "The Father, The Son, & The Holy Spirit | Confessing the Faith", linkUrl: '/'
-            },
-            {
-                title: "The Father is God, the Son is God, & the Spirit is God | Confessing the Faith", linkUrl: '/'
-            },
-            {
-                title: "The Foundation of All Our Communion with God & Comfortable Dependence Upon Him", linkUrl: '/'
-            },
-        ]
-    }, {
-        chapter: 4,
-        episodes: [
-            {
-                title: "Divine Singularity, Aseity, Incomprehensibility, & Simplicity | Confessing the Faith", linkUrl: '/'
-
-            },
-            {
-                title: "Divine Infinity, Sovereignty, Love, & Justice | Confessing the Faith", linkUrl: '/'
-            }
-        ]
-    }
-
-]
 
 const _transformVideoObject = (videos) => {
 
