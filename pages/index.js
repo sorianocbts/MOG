@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Navbar from '../components/_App/Navbar';
 import MainBanner from '../components/HomeThree/MainBanner';
 import About from '../components/HomeThree/About';
@@ -14,8 +15,23 @@ import AwardWinningMovies from '../components/HomeThree/AwardWinningMovies';
 import Footer from '../components/_App/Footer';
 import VideoAccordion from '../components/HomeThree/VideoAccordion';
 import ContactForm from '../components/HomeThree/ContactForm';
+import { server } from '../config';
 
-const Index3 = () => {
+export async function getServerSideProps(context) {
+    const res = await axios(`${server}/api/youtube`)
+    const data = await res.data
+    if (!data) {
+        return {
+            notFound: true,
+        }
+    }
+    return {
+        props: {
+            data,
+        },
+    }
+}
+const Index3 = ({ data }) => {
     return (
         <React.Fragment>
             <Navbar />
@@ -30,7 +46,7 @@ const Index3 = () => {
             {/* <AwardWinningMovies /> */}
             {/* <LatestNews /> */}
             {/* <Partners /> */}
-            <VideoAccordion />
+            <VideoAccordion data={data} />
             <ContactForm />
             <Footer />
         </React.Fragment>

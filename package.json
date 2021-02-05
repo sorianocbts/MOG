@@ -12,10 +12,13 @@
     "author": "CBTS",
     "license": "ISC",
     "dependencies": {
+        "axios": "^0.21.1",
         "bootstrap": "^4.6.0",
         "dotenv": "^8.2.0",
+        "lodash": "^4.17.20",
         "next": "^9.5.1",
         "next-redux-wrapper": "^6.0.2",
+        "node-fetch": "^2.6.1",
         "nodemailer": "^6.4.17",
         "react": "^16.13.1",
         "react-accessible-accordion": "^3.3.1",

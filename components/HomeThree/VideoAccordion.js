@@ -3,8 +3,19 @@ import Link from 'next/link';
 import { Accordion, Button, Card } from 'react-bootstrap'
 import { ChevronDown } from 'react-feather'
 import useWindowSize from '../../hooks/useWindowSize';
-function VideoAccordion() {
+
+function VideoAccordion({ data }) {
     const [width, height] = useWindowSize()
+    let videos = _transformVideoObject(data);
+
+    if (!data || !videos) {
+        return (
+            <>
+                <div>Error</div>
+            </>
+        )
+    }
+
     return (
         <div className={`video-accordion`}><style jsx>{`
         .video-accordion {
@@ -42,67 +53,43 @@ function VideoAccordion() {
             <div>
                 <Accordion defaultActiveKey="0">
                     <h1 className={`index-header`} id="video-index">CTF Video Index</h1>
-                    {ctfData.map((x, idx) => (
-                        <>
-                            <Card>
-                                {/* <Card.Header className={`cardheader`} style={{ backgroundColor: 'black' }} > */}
-                                {/* <Accordion.Toggle as={Button} variant="link" eventKey={`${idx}`} style={{ color: '#fff', border: 'none', outline: 'none' }} > */}
-                                <Accordion.Toggle as={Card.Header} variant="link" eventKey={`${idx}`} style={{ backgroundColor: 'black', color: '#fff', fontSize: '20px', border: 'none', outline: 'none' }} >
-                                    <span className={`card-titleheader`}>{`Chapter ${x.chapter}`}</span>
-                                    <span><ChevronDown className={`card-arrow`} /></span>
-                                </Accordion.Toggle>
-                                {/* </Card.Header> */}
-                                {x.episodes.map(episode => (
-                                    <>
-                                        <Accordion.Collapse eventKey={`${idx}`} >
-                                            <Link href={`${episode.linkUrl}`}>
-                                                <a className={`w-100`}>
-                                                    <Card.Body className={`shadow-sm pl-5`}>
-                                                        <li style={{ fontSize: '18px', letterSpacing: '1.2px' }}>
-                                                            {episode.title}
-                                                        </li>
-                                                    </Card.Body>
-                                                </a>
-                                            </Link>
-                                        </Accordion.Collapse>
-                                    </>
-                                ))}
-                                {/* <Accordion.Collapse eventKey={`${idx}`} >
-                                    <Card.Body>Hello! I'm the body</Card.Body>
-                                </Accordion.Collapse> */}
-                            </Card>
-                        </>
+                    {videos.map((x, idx) => (
+                        // < >
+                        <Card key={idx}>
+                            {/* <Card.Header className={`cardheader`} style={{ backgroundColor: 'black' }} > */}
+                            {/* <Accordion.Toggle as={Button} variant="link" eventKey={`${idx}`} style={{ color: '#fff', border: 'none', outline: 'none' }} > */}
+                            <Accordion.Toggle as={Card.Header} variant="link" eventKey={`${idx}`} style={{ backgroundColor: 'black', color: '#fff', fontSize: '20px', border: 'none', outline: 'none' }} >
+                                <span className={`card-titleheader`}>{`Chapter ${x.chapter}`}</span>
+                                <span><ChevronDown className={`card-arrow`} /></span>
+                            </Accordion.Toggle>
+                            {/* </Card.Header> */}
+                            {x.episodes.map((episode, idx2) => (
+                                // <>
+                                <Accordion.Collapse eventKey={`${idx}`} key={idx2} >
+                                    <Link href={`youtube.com/watch?v=${episode.id}`}>
+                                        <a className={`w-100`}>
+                                            <Card.Body className={`shadow-sm pl-5`}>
+                                                <li style={{ fontSize: '18px', letterSpacing: '1.2px' }}>
+                                                    {episode.title}
+                                                </li>
+                                            </Card.Body>
+                                        </a>
+                                    </Link>
+                                </Accordion.Collapse>
+                                // </>
+                            ))}
+                        </Card>
+                        // </>
                     ))}
-                    {/* <Card>
-                        <Card.Header>
-                            <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                                <span>Chapter 1</span>
-                                <span><ChevronDown className={`card-arrow`} /></span>
-
-                            </Accordion.Toggle>
-
-                        </Card.Header>
-                        <Accordion.Collapse eventKey="0">
-                            <Card.Body>Hello! I'm the body</Card.Body>
-                        </Accordion.Collapse>
-                    </Card>
-                    <Card>
-                        <Card.Header>
-                            <Accordion.Toggle as={Button} variant="link" eventKey="1">
-                                <span>Chapter 2</span>
-                                <span><ChevronDown className={`card-arrow`} /></span>
-                            </Accordion.Toggle>
-                        </Card.Header>
-                        <Accordion.Collapse eventKey="1">
-                            <Card.Body>Hello! I'm another body</Card.Body>
-                        </Accordion.Collapse>
-                    </Card> */}
                 </Accordion>
-            </div> </div>
+            </div> </div >
     )
 }
 
 export default VideoAccordion
+
+
+
 
 const ctfData = [
     {
@@ -189,3 +176,26 @@ const ctfData = [
     }
 
 ]
+
+const _transformVideoObject = (videos) => {
+
+
+    let titles = videos.map(vid => {
+        return { title: vid.snippet.title.trim().split("1689")[1], videoId: vid.id }
+    })
+
+    let ch = 1
+    let result = [{ chapter: ch, episodes: [] }]
+    for (let idx in titles) {
+        let title = titles[idx].title
+        if (title.includes(`${ch}:`)) {
+            result.find(chap => chap.chapter === ch).episodes.push(titles[idx])
+        }
+        else {
+            ch++
+            result.push({ chapter: ch, episodes: [] })
+            result.find(chap => chap.chapter === ch).episodes.push(titles[idx])
+        }
+    }
+    return result
+}
