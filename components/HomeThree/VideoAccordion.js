@@ -66,7 +66,7 @@ function VideoAccordion({ data }) {
                             {x.episodes.map((episode, idx2) => (
                                 // <>
                                 <Accordion.Collapse eventKey={`${idx}`} key={idx2} >
-                                    <Link href={`youtube.com/watch?v=${episode.id}`}>
+                                    <Link href={`//youtube.com/watch?v=${episode.id}`}>
                                         <a className={`w-100`}>
                                             <Card.Body className={`shadow-sm pl-5`}>
                                                 <li style={{ fontSize: '18px', letterSpacing: '1.2px' }}>
