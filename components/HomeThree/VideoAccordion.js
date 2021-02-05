@@ -31,6 +31,9 @@ function VideoAccordion({ data }) {
             color : #fff;
             letter-spacing: 1.2px;
         }
+        .card {
+            border: none !important;
+        }
         .card-header{
             border: none;
             outline: none;
@@ -54,10 +57,10 @@ function VideoAccordion({ data }) {
                     <h1 className={`index-header`} id="video-index">CTF Video Index</h1>
                     {videos.map((x, idx) => (
                         // < >
-                        <Card key={idx}>
+                        <Card key={idx} className={`shadow-lg`} style={{ border: '1pxsolid rgba(0,0,0,.70)' }}>
                             {/* <Card.Header className={`cardheader`} style={{ backgroundColor: 'black' }} > */}
                             {/* <Accordion.Toggle as={Button} variant="link" eventKey={`${idx}`} style={{ color: '#fff', border: 'none', outline: 'none' }} > */}
-                            <Accordion.Toggle as={Card.Header} variant="link" eventKey={`${idx}`} style={{ backgroundColor: 'black', color: '#fff', fontSize: '20px', border: 'none', outline: 'none' }} >
+                            <Accordion.Toggle as={Card.Header} variant="link" eventKey={`${idx}`} style={{ backgroundColor: '#fce14f', color: 'black', fontSize: '20px', border: 'none', outline: 'none' }} >
                                 <span className={`card-titleheader`}>{`Chapter ${x.chapter}`}</span>
                                 <span><ChevronDown className={`card-arrow`} /></span>
                             </Accordion.Toggle>
