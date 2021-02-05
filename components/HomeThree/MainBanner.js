@@ -22,6 +22,7 @@ const MaminBanner = () => {
             }
     }
     fonSizes()
+    console.log(height)
     return (
         <React.Fragment>
             <div className="banner-area jarallax" style={{ minHeight: '900px' }}>
@@ -30,7 +31,7 @@ const MaminBanner = () => {
                         <div className="container-fluid">
                             <div className="row align-items-center justify-content-center">
 
-                                <div className="col-lg-3 left-col" > {/*style={{ marginLeft: '10px' }}*/}
+                                <div className="col-lg-4 left-col" > {/*style={{ marginLeft: '10px' }}*/}
                                     <div className="banner-text">
                                         <h1 style={{ letterSpacing: '1.5px' }}>A theological &</h1>
                                         <h1>Devotional Walk</h1>
@@ -81,6 +82,7 @@ const MaminBanner = () => {
                                 <div className="col-lg-9 right-col">
                                     <div className="banner-video" style={{ pointerEvents: 'none' }}>
                                         <ReactPlayer
+                                            playsinline={true}
                                             className={`reactplayer`}
                                             url="https://vimeo.com/506225501"
                                             playing={true}
@@ -117,6 +119,9 @@ const MaminBanner = () => {
                     margin-top: 0px;
                 }
                 .left-col {
+                    height: 100%;
+                }
+                .right-col {
                     height: 100%;
                 }
                 @media (min-width: 380px) {
@@ -163,63 +168,67 @@ const MaminBanner = () => {
                 }
                 @media (min-width: 992px) {
                         .reactplayer {
-                            height:1230px !important;
-                            width: 128% !important;
+                            height: ${height}px !important; 
+                            width: 118% !important;
                             min-height: 100% !important;
                         }
                         .left-col {
-                            height: 750px;
+                            // height: 750px;
                             display: flex;
                             flex-direction: column;
                             justify-content: flex-start;
 
                         }
-
                 }
                 @media only screen and (min-width: 991px) and (max-width: 1198px) {
                     .left-col {
-                        height: 600px;
                         flex: 0 0 50%;
                         max-width: 50%;
                     }
                     .right-col {
+                        min-height: 750px !important;
                         flex: 0 0 50%;
                         max-width: 50%;
                     }
                     .reactplayer {
-                        height:1000px !important;
-                        width: 110% !important;
+                        height: ${height}px !important;  
+                        width: 118% !important;
                         min-height: 100% !important;
                     }
                 }
                 @media only screen and (min-width: 1199px) and (max-width: 1479px) {
                     .left-col {
-                        flex: 0 0 40%;
-                        max-width: 40%;
+                        height: ${height}px !important;  
+                        flex: 0 0 50%;
+                        max-width: 50%;
                     }
+                    
                     .right-col {
-                        flex: 0 0 60%;
-                        max-width: 60%;
+                        min-height: 750px !important;
+                        flex: 0 0 50%;
+                        max-width: 50%;
                     }
                 }
                 @media only screen and (min-width: 1480px) and (max-width: 1679px) {
                     .left-col {
-                        flex: 0 0 30%;
-                        max-width: 30%;
+                        flex: 0 0 50%;
+                        max-width: 50%;
                     }
                     .right-col {
-                        flex: 0 0 70%;
-                        max-width: 70%;
+                        min-height: 750px !important;
+                        flex: 0 0 50%;
+                        max-width: 50%;
                     }
                 }
                 @media (min-width: 1680px) {
                     .left-col {
-                        flex: 0 0 30%;
-                        max-width: 30%;
+                        flex: 0 0 50%;
+                        max-width: 50%;
                     }
                     .right-col {
-                        flex: 0 0 70%;
-                        max-width: 60%;
+                        min-height: 750px !important;
+                        flex: 0 0 50%;
+                        max-width: 50%;
                     }
                 }
             `}</style>
