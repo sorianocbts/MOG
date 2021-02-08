@@ -14,7 +14,9 @@ function VideoAccordion({ data }) {
             </>
         )
     }
-
+    const _getChapterName = (LBCFChapters, chapterNumber) => {
+        return LBCFChapters[`Chapter ${chapterNumber}`]
+    }
     return (
         <div className={`video-accordion`}><style jsx>{`
         .video-accordion {
@@ -25,7 +27,7 @@ function VideoAccordion({ data }) {
             paddding: 2rem;
         }
        .video-accordion div {
-            width: ${width < 1140 ? '70%' : '50%'};
+            width: ${width < 1140 ? '85%' : '50%'};
         }
         .index-header {
             color : #fff;
@@ -61,7 +63,7 @@ function VideoAccordion({ data }) {
                             {/* <Card.Header className={`cardheader`} style={{ backgroundColor: 'black' }} > */}
                             {/* <Accordion.Toggle as={Button} variant="link" eventKey={`${idx}`} style={{ color: '#fff', border: 'none', outline: 'none' }} > */}
                             <Accordion.Toggle as={Card.Header} variant="link" eventKey={`${idx}`} style={{ backgroundColor: '#fce14f', color: 'black', fontSize: '20px', border: 'none', outline: 'none' }} >
-                                <span className={`card-titleheader`}>{`Chapter ${x.chapter}`}</span>
+                                <span className={`card-titleheader`}>{`Chapter ${x.chapter}- ${_getChapterName(LBCFChapters, x.chapter)}`}</span>
                                 <span><ChevronDown className={`card-arrow`} /></span>
                             </Accordion.Toggle>
                             {/* </Card.Header> */}
@@ -113,4 +115,39 @@ const _transformVideoObject = (videos) => {
         }
     }
     return result
+}
+
+const LBCFChapters = {
+    "Chapter 1": "The Holy Scriptures",
+    "Chapter 2": "God and the Holy Trinity",
+    "Chapter 3": "God's Decree",
+    "Chapter 4": "Creation",
+    "Chapter 5": "Divine Providence",
+    "Chapter 6": "The Fall of Mankind, and Sin and Its Punishment",
+    "Chapter 7": "God's Covenant",
+    "Chapter 8": "Christ the Mediator",
+    "Chapter 9": "Free Will",
+    "Chapter 10": "Effectual Calling",
+    "Chapter 11": "Justification",
+    "Chapter 12": "Adoption",
+    "Chapter 13": "Sanctification",
+    "Chapter 14": "Saving Faith",
+    "Chapter 15": "Repentance to Life and Salvation",
+    "Chapter 16": "Good Works",
+    "Chapter 17": "The Perseverance of the Saints",
+    "Chapter 18": "Assurance of Grace and Salvation",
+    "Chapter 19": "The Law of God",
+    "Chapter 20": "The Gospel and the Extent of Its Grace",
+    "Chapter 21": "Christian Liberty and Liberty of Conscience",
+    "Chapter 22": "Religious Worship and the Sabbath Day",
+    "Chapter 23": "Lawful Oaths and Vows",
+    "Chapter 24": "Civil Government",
+    "Chapter 25": "Marriage",
+    "Chapter 26": "The Church",
+    "Chapter 27": "The Communion of Saints",
+    "Chapter 28": "Baptism and the Lord's Supper",
+    "Chapter 29": "Baptism",
+    "Chapter 30": "The Lord's Supper",
+    "Chapter 31": "The State of Humanity after Death and the Resurrection of the Dead",
+    "Chapter 32": "The Last Judgment",
 }

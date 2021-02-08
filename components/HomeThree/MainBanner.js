@@ -65,11 +65,11 @@ const MaminBanner = () => {
                                             </Link>
                                         </div>
                                         <div className={`d-flex`} style={{ marginTop: '46px' }}>
-                                            <Link href="#footer-section" >
+                                            <Link href="#contact-section" >
                                                 <a
                                                     style={{ color: '#fff', fontSize: '24px' }}
                                                 >
-                                                    <ArrowDownCircle width='200px' height='40px' color='#fce14f' onClick={() => goToAnchor('footer-section')} />
+                                                    <ArrowDownCircle width='200px' height='40px' color='#fce14f' onClick={() => goToAnchor('contact-section')} />
 
                                                 </a>
                                             </Link>

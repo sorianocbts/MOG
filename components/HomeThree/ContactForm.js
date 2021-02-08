@@ -1,5 +1,6 @@
 import React from 'react';
 import Router from 'next/router'
+import ScrollableAnchor from 'react-scrollable-anchor'
 import useForm from '../../hooks/useForm'
 import useWindowSize from '../../hooks/useWindowSize';
 const ContactForm = () => {
@@ -43,7 +44,10 @@ const ContactForm = () => {
                 <div className="row">
                     <div className="col-lg-12 col-md-12">
                         <div className="contact-wrap">
-                            <h1 className={`index-header`}>Write Us</h1>
+                            <ScrollableAnchor id={'contact-section'}>
+                                <h1 className={`index-header`}>Write Us</h1>
+                            </ScrollableAnchor>
+
 
                             <form id="contactForm" onSubmit={(e) => handleSub(e)}>
                                 <div className="row align-items-center">
