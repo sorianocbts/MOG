@@ -35,7 +35,7 @@ const NowPlaying = React.memo(({ data }) => {
     })
     
      const _getVideoBlocks = () => {
-        return [... new Set(Array(7).fill([_getVideoToPlay(), _getVideoToPlay(), _getVideoToPlay(), _getVideoToPlay(),_getVideoToPlay(),_getVideoToPlay(), _getVideoToPlay()]).flat())]
+        return [_getVideoToPlay(), _getVideoToPlay(), _getVideoToPlay(), _getVideoToPlay(),_getVideoToPlay(),_getVideoToPlay(), _getVideoToPlay()]
         // let arr = []
         // while(arr.length < 7){
         //     var r = _getVideoToPlay()
