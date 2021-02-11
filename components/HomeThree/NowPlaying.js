@@ -139,9 +139,13 @@ const NowPlaying = React.memo(({ data }) => {
             .progress-bar {
                 background-color: #fce14f !important;
             }
+            .videoplayer-controls {
+                min-height: 40px;
+            }
             .videobuttons{
                 width: 85%;
                 max-width: 280px;
+                
             }
             .btns {
                 width: 100%;
