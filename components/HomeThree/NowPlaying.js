@@ -243,7 +243,7 @@ const NowPlaying = React.memo(({ data }) => {
                         {videosforBlocks.map((x, idx)=> {
                             if(idx ===0 ) return 
                            else { return(
-                            <div key={idx} className={`shadow btn-blocks btn btn-outline-dark my-2 spaced-text d-flex align-items-center justify-content-start`} style={{ backgroundColor: `${playingIdx===idx? '#343A40': '#fce14f'}`, color: '#fff'  }} onClick={() => {setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><i className="flaticon-play mx-2 spaced-text" /><p className={`spaced-text`}>{truncate(videos[x.chidx].episodes[x.vididx].title.replace(`| Confessing the Faith`, ``), 40)}</p></div>
+                            <div key={idx} className={`shadow btn-blocks btn btn-outline-dark my-2 spaced-text d-flex align-items-center justify-content-start`} style={{ backgroundColor: `${playingIdx===idx? '#343A40': '#fce14f'}`, color: `${playingIdx===idx?'#fff':`black`}`}} onClick={() => {setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><i className="flaticon-play mx-2 spaced-text" /><p className={`spaced-text`}>{truncate(videos[x.chidx].episodes[x.vididx].title.replace(`| Confessing the Faith`, ``), 40)}</p></div>
                             )}
 })}
                     </div>
