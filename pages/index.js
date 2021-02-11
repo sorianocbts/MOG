@@ -16,6 +16,7 @@ import Footer from '../components/_App/Footer';
 import VideoAccordion from '../components/HomeThree/VideoAccordion';
 import ContactForm from '../components/HomeThree/ContactForm';
 import { server } from '../config';
+import NowPlaying from '../components/HomeThree/NowPlaying';
 
 export async function getServerSideProps(context) {
     const res = await axios(`${server}/api/youtube`)
@@ -47,6 +48,7 @@ const Index3 = ({ data }) => {
             {/* <LatestNews /> */}
             {/* <Partners /> */}
             <VideoAccordion data={data} />
+            <NowPlaying data={data} />
             <ContactForm />
             <Footer />
         </React.Fragment>

@@ -1,0 +1,346 @@
+import React from 'react'
+import Link from 'next/link';
+import ModalVideo from 'react-modal-video'
+import useWindowSize from '../../hooks/useWindowSize'
+import ReactPlayer from 'react-player/youtube'
+import { ChevronLeft, ChevronRight, Play, Rewind, FastForward, Volume2, VolumeX, Pause, Repeat } from 'react-feather'
+import { reverse } from 'lodash';
+import { ProgressBar } from 'react-bootstrap';
+import ChapterModal from './ChapterModal';
+const NowPlaying = React.memo(({ data }) => {
+    const player = React.useRef(null)
+    const progressWrapper = React.useRef(null)
+    const [width, height] = useWindowSize()
+    // let width =722
+    const [muted, setMuted] = React.useState(true)
+    const [playing, setPlaying] = React.useState(true)
+    const [progress, setProgress] = React.useState(0)
+    const [seeking, setSeeking] = React.useState(false)
+    let videos = _transformVideoObject(data);
+    if (!data || !videos) {
+        return (
+            <>
+                <div>Error</div>
+            </>
+        )
+    }
+    const _getChapterName = (LBCFChapters, chapterNumber) => {
+        return LBCFChapters[`Chapter ${chapterNumber}`]
+    }
+
+    const _getVideoToPlay = React.useCallback(() => {
+        let chidx = randomIntFromInterval(0, videos.length - 1)
+        let vididx = randomIntFromInterval(0, videos[chidx].episodes.length - 1)
+        return { chidx, vididx }
+    })
+    
+     const _getVideoBlocks = () => {
+        return [... new Set(Array(7).fill([_getVideoToPlay(), _getVideoToPlay(), _getVideoToPlay(), _getVideoToPlay(),_getVideoToPlay(),_getVideoToPlay(), _getVideoToPlay()]).flat())]
+        // let arr = []
+        // while(arr.length < 7){
+        //     var r = _getVideoToPlay()
+        //     if(arr.includes(r)) arr.push(r);
+        //     else{continue}
+        // }
+        // return arr
+    }
+    const [videosforBlocks, setVideosForBlocks] = React.useState(_getVideoBlocks())
+    const [playingIdx, setPlayingIdx] = React.useState(0)
+    const [videoForPlayer, setVideoForPlayer] = React.useState(videosforBlocks[playingIdx])
+
+    React.useEffect(() => {
+       
+    }, [videoForPlayer])
+
+    const seek = (p)=> {
+        setSeeking(true)
+        if(player.current !== null) {
+            console.log('seeking to', p)
+            player.current.seekTo(p)
+        }
+        setTimeout(()=>setSeeking(false), 800)
+    }
+    const seekProgress = (event) =>{
+        if(progressWrapper.current !== null) {
+
+            let left = (event.pageX - progressWrapper.current.offsetLeft) / progressWrapper.current.clientWidth
+            seek(left)
+        }
+    }
+    const [isOpen, setIsOpen] = React.useState(true);
+    const openModal = () => {
+        setPlaying(false)
+        setIsOpen(!isOpen);
+    }
+    const [modalShow, setModalShow] = React.useState(false);
+    return (
+        <>
+
+            <div className={`nowplaying-container`}><style jsx>{`
+            .spaced-text {
+                letter-spacing: 1.2px;
+                font-style: normal !important;
+                font-size: 16px;
+            }
+            .nowplaying-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 2rem 0;
+                min-width: 680px;
+            }
+            .header-div {
+                width: ${width < 1140 ? '85%' : '50%'};
+            }
+            h2 {
+                display: inline-block;
+                color: #fff;
+                font-size: 40px;
+                font-weight: 700 !important;
+                letter-spacing: 1.2px;
+            }
+            .nowplaying-div {
+                background-color: #fff;
+                width: ${width < 1140 ? '85%' : '50%'};
+                color: black;
+                height: 100%;
+                min-height: 400px;
+                display: grid;
+                grid-template-columns: 2fr 3fr;
+            }
+            .left-column {
+                grid-column: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;   
+            }
+            .videoplay-wrapper {
+                width: 100%;
+                height: 60%;
+                max-height: 200px;
+            }
+            .chevron {
+                display: inline;
+                position: relative;
+                top: -24px;
+            }
+            .chevron > p {
+                font-size:20px;
+                font-weight:700;
+            }
+            .chevron-left {
+                left: 10px;
+            }
+            .chevron-right {
+                right: 10px;
+            }
+            .videoplayer {
+               
+            }
+            .nowplaying-reactplayer {
+                height: 100% !important;
+            }
+            .progress-bar {
+                background-color: #fce14f !important;
+            }
+            .videobuttons{
+                width: 85%;
+            }
+            .btns {
+                width: 100%;
+            }
+            .btns > div {
+                // color: white;
+                min-width: 120px;
+                background-color: #fce14f;
+            }
+            .btns > a {
+                // color: white;
+                min-width: 120px;
+                background-color: #fce14f;
+            }
+            .long-btn {
+                width: 85%;
+                background-color: #fce14f;
+            }
+            .right-column {
+                grid-column: 2;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;  
+            }
+            .btn-blocks {
+                width: 95%;
+                
+            }
+            
+            `}
+
+            </style>
+
+                <div className={`header-div rounded`}>
+                    <h2>Now Playing</h2>
+                </div>
+                <div className={`nowplaying-div rounded`}>
+                    <div className={`left-column`}>
+                        <div className={`videoplay-wrapper d-flex align-items-center justify-content-center`}>
+                            <div className={`chevron chevron-left btn btn-sm`} onClick={() => {let idx = playingIdx===0?6:playingIdx-1;setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><p><ChevronLeft /></p></div>
+                            <div className={`videoplayer rounded`}>
+                                {/* <VideoPlayer videos={videos} videoForPlayer={videoForPlayer} playing={playing} muted={muted} /> */}
+                                <ReactPlayer
+                                ref={player}
+                                    width={`100%`}
+                                    height={`100%`}
+                                    playsinline={true}
+                                    className={`nowplaying-reactplayer`}
+                                    url={`www.youtube.com/watch?v=${videos[videoForPlayer.chidx].episodes[videoForPlayer.vididx].videoId}`}
+                                    playing={playing}
+                                    loop={true}
+                                    controls={false}
+                                    muted={muted}
+                                    config={{
+                                        youtube: {
+                                            playerVars: { showinfo: 0, modestbranding: 0, rel: 0 }
+                                        }
+                                    }}
+                                    onProgress={e => setProgress(e)} //setProgress(state.played)
+                                    onSeek={(e)=>console.log('onSeek', e)}
+                                />
+                                <ProgressBar ref={progressWrapper} onClick={e => seekProgress(e)} variant="warning" now={progress.played*100} label={fancyTimeFormat(progress.playedSeconds)} style={{height: '10px'}}/>
+                                 <div className={`videoplayer-controls d-flex justify-content-between`}>
+                                 <div className={`btn-sm videoplayer-rewind `} onClick={()=>seek(0)}><Repeat width={'18px'}/></div>
+                                 <div className={`btn-sm videoplayer-rewind `}onClick={()=>seek(progress.played-0.05)}><Rewind width={'18px'}/></div>
+                                 <div className={`btn-sm videoplayer-play `} onClick={()=> setPlaying(!playing)}>{playing?<Pause width={'18px'}/>:<Play width={'18px'}/>}</div>
+                                 <div className={`btn-sm videoplayer-forward `} onClick={()=>seek(progress.played+0.05)}><FastForward width={'18px'}/></div>
+                                 <div className={`btn-sm videoplayer-volume `} onClick={()=> setMuted(!muted)}>{muted? <Volume2 width={'18px'}/>:<VolumeX width={'18px'}/>}</div>
+                                 </div>
+                            </div>
+                            <div className={`chevron chevron-right btn btn-sm`} onClick={() => {let idx = playingIdx===6?0:playingIdx+1;setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><p><ChevronRight /></p></div>
+                        </div>
+                        <div className={`videobuttons d-flex`}>
+                            <div className={`btns my-3 d-flex justify-content-between`}>
+                                <div className={`shadow btn btn-outline-dark`} onClick={e => {e.preventDefault(); openModal()}}>Full Screen</div>
+                                <ModalVideo 
+                                    channel='youtube' 
+                                    isOpen={!isOpen} 
+                                    videoId={`${videos[videoForPlayer.chidx].episodes[videoForPlayer.vididx].videoId}`}
+                                    onClose={() => setIsOpen(!isOpen)} 
+                                    autoplay
+                                />
+                                <Link href={`//www.youtube.com/watch?v=${videos[videoForPlayer.chidx].episodes[videoForPlayer.vididx].videoId}`} passHref={true} prefetch={false}>
+                                    <a target="_blank" rel="noreferrer" className={`shadow btn btn-outline-dark `}>Youtube
+                                        
+                                    </a>
+                                </Link>
+                            </div>
+                        </div>
+                        <div className={`long-btn shadow white btn btn-outline-dark block`}  onClick={() => setModalShow(true)}>Read Chapter</div>
+                        <ChapterModal
+                                show={modalShow}
+                                onHide={() => setModalShow(false)}
+                                chapter={{chapterNumber: videoForPlayer.chidx+1,title: _getChapterName(LBCFChapters, videoForPlayer.chidx+1)}}
+                            />
+                    </div>
+                    <div className={`right-column`}>
+                        {videosforBlocks.map((x, idx)=> {
+                            if(idx ===0 ) return 
+                           else { return(<>
+                            <div key={idx} className={`shadow btn-blocks btn btn-outline-dark my-2 spaced-text d-flex align-items-center justify-content-start`} style={{ width: '95%', backgroundColor: '#fce14f' }} onClick={() => {setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><i className="flaticon-play mx-2 spaced-text" /><p className={`spaced-text`}>{truncate(videos[x.chidx].episodes[x.vididx].title.replace(`| Confessing the Faith`, ``), 40)}</p></div>
+                            </>)}
+})}
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+})
+
+export default NowPlaying
+
+function randomIntFromInterval(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+const _transformVideoObject = (videos) => {
+
+
+    let titles = videos.map(vid => {
+        return { title: vid.snippet.title.trim().split("1689")[1], videoId: vid.id }
+    })
+
+    let ch = 1
+    let result = [{ chapter: ch, episodes: [] }]
+    for (let idx in titles) {
+        let title = titles[idx].title
+        if (title.includes(`${ch}:`)) {
+            result.find(chap => chap.chapter === ch).episodes.push(titles[idx])
+        }
+        else {
+            ch++
+            result.push({ chapter: ch, episodes: [] })
+            result.find(chap => chap.chapter === ch).episodes.push(titles[idx])
+        }
+    }
+    return result
+}
+
+const LBCFChapters = {
+    "Chapter 1": "The Holy Scriptures",
+    "Chapter 2": "God and the Holy Trinity",
+    "Chapter 3": "God's Decree",
+    "Chapter 4": "Creation",
+    "Chapter 5": "Divine Providence",
+    "Chapter 6": "The Fall of Mankind, and Sin and Its Punishment",
+    "Chapter 7": "God's Covenant",
+    "Chapter 8": "Christ the Mediator",
+    "Chapter 9": "Free Will",
+    "Chapter 10": "Effectual Calling",
+    "Chapter 11": "Justification",
+    "Chapter 12": "Adoption",
+    "Chapter 13": "Sanctification",
+    "Chapter 14": "Saving Faith",
+    "Chapter 15": "Repentance to Life and Salvation",
+    "Chapter 16": "Good Works",
+    "Chapter 17": "The Perseverance of the Saints",
+    "Chapter 18": "Assurance of Grace and Salvation",
+    "Chapter 19": "The Law of God",
+    "Chapter 20": "The Gospel and the Extent of Its Grace",
+    "Chapter 21": "Christian Liberty and Liberty of Conscience",
+    "Chapter 22": "Religious Worship and the Sabbath Day",
+    "Chapter 23": "Lawful Oaths and Vows",
+    "Chapter 24": "Civil Government",
+    "Chapter 25": "Marriage",
+    "Chapter 26": "The Church",
+    "Chapter 27": "The Communion of Saints",
+    "Chapter 28": "Baptism and the Lord's Supper",
+    "Chapter 29": "Baptism",
+    "Chapter 30": "The Lord's Supper",
+    "Chapter 31": "The State of Humanity after Death and the Resurrection of the Dead",
+    "Chapter 32": "The Last Judgment",
+}
+
+function truncate(str, max) {
+    return str.length > max ? str.substr(0, max - 1) + '…' : str;
+}
+
+function fancyTimeFormat(duration)
+{   
+    // Hours, minutes and seconds
+    var hrs = ~~(duration / 3600);
+    var mins = ~~((duration % 3600) / 60);
+    var secs = ~~duration % 60;
+
+    // Output like "1:01" or "4:03:59" or "123:03:59"
+    var ret = "";
+
+    if (hrs > 0) {
+        ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+    }
+
+    ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+    ret += "" + secs;
+    return ret;
+}
