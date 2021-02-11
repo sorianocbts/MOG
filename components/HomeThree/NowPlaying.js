@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link';
 import ModalVideo from 'react-modal-video'
+import ScrollableAnchor from 'react-scrollable-anchor'
 import useWindowSize from '../../hooks/useWindowSize'
 import ReactPlayer from 'react-player/youtube'
 import { ChevronLeft, ChevronRight, Play, Rewind, FastForward, Volume2, VolumeX, Pause, Repeat } from 'react-feather'
@@ -67,8 +68,8 @@ const NowPlaying = React.memo(({ data }) => {
     const [modalShow, setModalShow] = React.useState(false);
     return (
         <>
-
-            <div className={`nowplaying-container`}><style jsx>{`
+<ScrollableAnchor id={'now-playing'}>
+            <div className={`nowplaying-container`} id={`#now-playing`}><style jsx>{`
             .spaced-text {
                 letter-spacing: 1.2px;
                 font-style: normal !important;
@@ -249,6 +250,7 @@ const NowPlaying = React.memo(({ data }) => {
                     </div>
                 </div>
             </div>
+            </ScrollableAnchor>
         </>
     )
 })
