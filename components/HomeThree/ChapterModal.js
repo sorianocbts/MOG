@@ -1,5 +1,7 @@
 import React from 'react'
 import { Modal, Button } from 'react-bootstrap'
+import Iframe from 'react-iframe'
+import { LBCF } from './LBCF'
 
 const ChapterModal = (props) => {
     return (
@@ -17,11 +19,16 @@ const ChapterModal = (props) => {
                 </Modal.Header>
                 <Modal.Body>
                     <h4>{`Chapter  ${props.chapter.chapterNumber}-  ${props.chapter.title}`}</h4>
-                    <p>
-                        Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                        dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.
-            </p>
+                    {/* <p> */}
+                    {/* {LBCF[`Chapter 1`][0]} */}
+                    <Iframe url={`https://www.the1689confession.com/1689/chapter-${props.chapter.chapterNumber}`}
+                        width="100%"
+                        height="450px"
+                        id="myId"
+                        className="myClassname"
+                        display="initial"
+                        position="relative" />
+                    {/* </p> */}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={props.onHide} className={`btn-outline`} style={{ backgroundColor: '#fce14f' }}>Close</Button>

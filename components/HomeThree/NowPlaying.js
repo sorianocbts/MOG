@@ -4,7 +4,6 @@ import ModalVideo from 'react-modal-video'
 import useWindowSize from '../../hooks/useWindowSize'
 import ReactPlayer from 'react-player/youtube'
 import { ChevronLeft, ChevronRight, Play, Rewind, FastForward, Volume2, VolumeX, Pause, Repeat } from 'react-feather'
-import { reverse } from 'lodash';
 import { ProgressBar } from 'react-bootstrap';
 import ChapterModal from './ChapterModal';
 const NowPlaying = React.memo(({ data }) => {
@@ -36,13 +35,6 @@ const NowPlaying = React.memo(({ data }) => {
     
      const _getVideoBlocks = () => {
         return [_getVideoToPlay(), _getVideoToPlay(), _getVideoToPlay(), _getVideoToPlay(),_getVideoToPlay(),_getVideoToPlay(), _getVideoToPlay()]
-        // let arr = []
-        // while(arr.length < 7){
-        //     var r = _getVideoToPlay()
-        //     if(arr.includes(r)) arr.push(r);
-        //     else{continue}
-        // }
-        // return arr
     }
     const [videosforBlocks, setVideosForBlocks] = React.useState(_getVideoBlocks())
     const [playingIdx, setPlayingIdx] = React.useState(0)
@@ -88,10 +80,10 @@ const NowPlaying = React.memo(({ data }) => {
                 align-items: center;
                 justify-content: center;
                 margin: 2rem 0;
-                min-width: 680px;
+                // min-width: 400px;
             }
             .header-div {
-                width: ${width < 1140 ? '85%' : '50%'};
+                width: ${width < 1450 ? '85%' : '50%'};
             }
             h2 {
                 display: inline-block;
@@ -102,19 +94,20 @@ const NowPlaying = React.memo(({ data }) => {
             }
             .nowplaying-div {
                 background-color: #fff;
-                width: ${width < 1140 ? '85%' : '50%'};
+                width: ${width < 1450 ? '85%' : '50%'};
                 color: black;
                 height: 100%;
-                min-height: 400px;
+                min-height: ${width < 900? '700px' : '400px'}; 
                 display: grid;
-                grid-template-columns: 2fr 3fr;
+                grid-template-columns:${width < 900? '2fr' : '2fr 3fr'}; 
             }
             .left-column {
                 grid-column: 1;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;   
+                justify-content: center;
+                min-height: 350px;   
             }
             .videoplay-wrapper {
                 width: 100%;
@@ -147,6 +140,7 @@ const NowPlaying = React.memo(({ data }) => {
             }
             .videobuttons{
                 width: 85%;
+                max-width: 280px;
             }
             .btns {
                 width: 100%;
@@ -164,17 +158,18 @@ const NowPlaying = React.memo(({ data }) => {
             .long-btn {
                 width: 85%;
                 background-color: #fce14f;
+                max-width: 280px;
             }
             .right-column {
-                grid-column: 2;
+                grid-column: ${width < 900 ? 1 : 2};
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;  
             }
             .btn-blocks {
-                width: 95%;
-                
+                width: ${width < 900? '65%' : '95%'};
+                min-width: 280px;
             }
             
             `}
@@ -189,7 +184,7 @@ const NowPlaying = React.memo(({ data }) => {
                         <div className={`videoplay-wrapper d-flex align-items-center justify-content-center`}>
                             <div className={`chevron chevron-left btn btn-sm`} onClick={() => {let idx = playingIdx===0?6:playingIdx-1;setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><p><ChevronLeft /></p></div>
                             <div className={`videoplayer rounded`}>
-                                {/* <VideoPlayer videos={videos} videoForPlayer={videoForPlayer} playing={playing} muted={muted} /> */}
+                                <h4 style={{textAlign: 'center', fontSize: '14px'}}>{videos[videoForPlayer.chidx].episodes[videoForPlayer.vididx].title.replace(`| Confessing the Faith`, ``)}</h4>
                                 <ReactPlayer
                                 ref={player}
                                     width={`100%`}
@@ -247,9 +242,9 @@ const NowPlaying = React.memo(({ data }) => {
                     <div className={`right-column`}>
                         {videosforBlocks.map((x, idx)=> {
                             if(idx ===0 ) return 
-                           else { return(<>
-                            <div key={idx} className={`shadow btn-blocks btn btn-outline-dark my-2 spaced-text d-flex align-items-center justify-content-start`} style={{ width: '95%', backgroundColor: '#fce14f' }} onClick={() => {setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><i className="flaticon-play mx-2 spaced-text" /><p className={`spaced-text`}>{truncate(videos[x.chidx].episodes[x.vididx].title.replace(`| Confessing the Faith`, ``), 40)}</p></div>
-                            </>)}
+                           else { return(
+                            <div key={idx} className={`shadow btn-blocks btn btn-outline-dark my-2 spaced-text d-flex align-items-center justify-content-start`} style={{ backgroundColor: `${playingIdx===idx? '#343A40': '#fce14f'}`, color: '#fff'  }} onClick={() => {setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><i className="flaticon-play mx-2 spaced-text" /><p className={`spaced-text`}>{truncate(videos[x.chidx].episodes[x.vididx].title.replace(`| Confessing the Faith`, ``), 40)}</p></div>
+                            )}
 })}
                     </div>
                 </div>

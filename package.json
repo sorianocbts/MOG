@@ -25,6 +25,7 @@
         "react-bootstrap": "^1.4.3",
         "react-dom": "^16.13.1",
         "react-feather": "^2.0.9",
+        "react-iframe": "^1.8.0",
         "react-modal-video": "^1.2.5",
         "react-owl-carousel3": "^2.2.5",
         "react-player": "^2.8.2",

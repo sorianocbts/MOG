@@ -26,7 +26,7 @@ function VideoAccordion({ data }) {
             justify-content: center;
         }
        .video-accordion div {
-            width: ${width < 1140 ? '85%' : '50%'};
+            width: ${width < 1450 ? '85%' : '50%'};
         }
         .index-header {
             color : #fff;
