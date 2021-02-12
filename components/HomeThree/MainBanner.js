@@ -84,7 +84,7 @@ const MaminBanner = () => {
                                         <ReactPlayer
                                             playsinline={true}
                                             className={`reactplayer`}
-                                            url={`https://vimeo.com/${width < 1450 ? '506225501' : '511696987'}`} // 506225501 //511696987
+                                            url={`https://vimeo.com/${width > 1480 ? '511696987' : '506225501'}`} // 506225501 //511696987
                                             playing={true}
                                             loop={true}
                                             controls={false}
@@ -136,6 +136,7 @@ const MaminBanner = () => {
                     }
                     .left-col {
                         height: 100%;
+
                     }
                 }
                 @media (min-width: 539px) {
@@ -199,6 +200,7 @@ const MaminBanner = () => {
                 @media only screen and (min-width: 1199px) and (max-width: 1479px) {
                     .left-col {
                         height: ${height}px !important;  
+                        max-height:670px !important;
                         flex: 0 0 50%;
                         max-width: 50%;
                     }
