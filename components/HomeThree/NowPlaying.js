@@ -35,7 +35,7 @@ const NowPlaying = React.memo(({ data }) => {
     })
     
      const _getVideoBlocks = () => {
-        return [_getVideoToPlay(), _getVideoToPlay(), _getVideoToPlay(), _getVideoToPlay(),_getVideoToPlay(),_getVideoToPlay(), _getVideoToPlay()]
+        return [_getVideoToPlay(), _getVideoToPlay(), _getVideoToPlay(), _getVideoToPlay(),_getVideoToPlay(),_getVideoToPlay()]
     }
     const [videosforBlocks, setVideosForBlocks] = React.useState(_getVideoBlocks())
     const [playingIdx, setPlayingIdx] = React.useState(0)
@@ -187,7 +187,7 @@ const NowPlaying = React.memo(({ data }) => {
                 <div className={`nowplaying-div rounded`}>
                     <div className={`left-column`}>
                         <div className={`videoplay-wrapper d-flex align-items-center justify-content-center`}>
-                            <div className={`chevron chevron-left btn btn-sm`} onClick={() => {let idx = playingIdx===0?6:playingIdx-1;setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><p><ChevronLeft /></p></div>
+                            <div className={`chevron chevron-left btn btn-sm`} onClick={() => {let idx = playingIdx===0?5:playingIdx-1;setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><p><ChevronLeft /></p></div>
                             <div className={`videoplayer rounded`}>
                                 <h4 style={{textAlign: 'center', fontSize: '14px'}}>{videos[videoForPlayer.chidx].episodes[videoForPlayer.vididx].title.replace(`| Confessing the Faith`, ``)}</h4>
                                 <ReactPlayer
@@ -218,7 +218,7 @@ const NowPlaying = React.memo(({ data }) => {
                                  <div className={`btn-sm videoplayer-volume `} onClick={()=> setMuted(!muted)}>{muted? <Volume2 width={'18px'}/>:<VolumeX width={'18px'}/>}</div>
                                  </div>
                             </div>
-                            <div className={`chevron chevron-right btn btn-sm`} onClick={() => {let idx = playingIdx===6?0:playingIdx+1;setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><p><ChevronRight /></p></div>
+                            <div className={`chevron chevron-right btn btn-sm`} onClick={() => {let idx = playingIdx===5?0:playingIdx+1;setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><p><ChevronRight /></p></div>
                         </div>
                         <div className={`videobuttons d-flex`}>
                             <div className={`btns my-3 d-flex justify-content-between`}>
@@ -246,10 +246,12 @@ const NowPlaying = React.memo(({ data }) => {
                     </div>
                     <div className={`right-column`}>
                         {videosforBlocks.map((x, idx)=> {
-                            if(idx ===0 ) return 
-                           else { return(
+                            // if(idx ===0 ) return 
+                        //    else { 
+                            return(
                             <div key={idx} className={`shadow btn-blocks btn btn-outline-dark my-2 spaced-text d-flex align-items-center justify-content-start`} style={{ backgroundColor: `${playingIdx===idx? '#343A40': '#fce14f'}`, color: `${playingIdx===idx?'#fff':`black`}`}} onClick={() => {setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><i className="flaticon-play mx-2 spaced-text" /><p className={`spaced-text`}>{truncate(videos[x.chidx].episodes[x.vididx].title.replace(`| Confessing the Faith`, ``), 40)}</p></div>
-                            )}
+                            )
+                            // )}
 })}
                     </div>
                 </div>

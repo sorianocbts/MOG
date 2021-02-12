@@ -84,7 +84,7 @@ const MaminBanner = () => {
                                         <ReactPlayer
                                             playsinline={true}
                                             className={`reactplayer`}
-                                            url="https://vimeo.com/506225501"
+                                            url={`https://vimeo.com/${width < 1450 ? '506225501' : '511696987'}`} // 506225501 //511696987
                                             playing={true}
                                             loop={true}
                                             controls={false}
