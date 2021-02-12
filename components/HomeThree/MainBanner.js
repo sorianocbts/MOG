@@ -11,6 +11,7 @@ const MaminBanner = () => {
         setIsOpen(!isOpen);
     }
     const [width, height] = useWindowSize()
+    const [vimeoID, setVimeoID] = React.useState(null)
     const fonSizes = () => {
         return width < 439 ? {
             h2: 40,
@@ -22,7 +23,11 @@ const MaminBanner = () => {
             }
     }
     fonSizes()
-    console.log(height)
+    React.useLayoutEffect(() => {
+        console.log(width)
+        if (width > 0) { width > 1480 ? setVimeoID('511696987') : setVimeoID('506225501') }
+        console.log(vimeoID)
+    }, [width, vimeoID])
     return (
         <React.Fragment>
             <div className="banner-area jarallax" style={{ minHeight: '900px' }}>
@@ -81,10 +86,10 @@ const MaminBanner = () => {
 
                                 <div className="col-lg-9 right-col">
                                     <div className="banner-video" style={{ pointerEvents: 'none' }}>
-                                        <ReactPlayer
+                                        {vimeoID && width > 0 && (<ReactPlayer
                                             playsinline={true}
                                             className={`reactplayer`}
-                                            url={`https://vimeo.com/${width > 1480 ? '511696987' : '506225501'}`} // 506225501 //511696987
+                                            url={`https://vimeo.com/${vimeoID}`} // 506225501 //511696987 //width > 1480 ? '511696987' : '506225501'
                                             playing={true}
                                             loop={true}
                                             controls={false}
@@ -94,7 +99,7 @@ const MaminBanner = () => {
                                                     playerVars: { showinfo: 0, modestbranding: 0, rel: 0 }
                                                 }
                                             }}
-                                        />
+                                        />)}
                                     </div>
                                 </div>
 
