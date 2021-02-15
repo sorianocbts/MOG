@@ -6,6 +6,8 @@ import useWindowSize from '../../hooks/useWindowSize'
 import { ArrowDownCircle } from 'react-feather';
 import { goToAnchor } from 'react-scrollable-anchor'
 const MaminBanner = () => {
+    const player = React.useRef(null)
+    // const [playerOpacity, setPlayerOpacity] = React.useState(0);
     const [isOpen, setIsOpen] = React.useState(true);
     const openModal = () => {
         setIsOpen(!isOpen);
@@ -25,7 +27,10 @@ const MaminBanner = () => {
     fonSizes()
     React.useLayoutEffect(() => {
         if (width > 0) { width > 1480 ? setVimeoID('511696987') : setVimeoID('506225501') }
-    }, [width, vimeoID])
+    }, [width, vimeoID,])
+    // React.useEffect(() => {
+    // }, [player.current])
+    // console.log(player.current ? player.current.wrapper.attributes : null)
     return (
         <React.Fragment>
             <div className="banner-area jarallax" style={{ minHeight: '900px' }}>
@@ -84,20 +89,22 @@ const MaminBanner = () => {
 
                                 <div className="col-lg-9 right-col">
                                     <div className="banner-video" style={{ pointerEvents: 'none' }}>
-                                        {vimeoID && width > 0 && (<ReactPlayer
-                                            playsinline={true}
-                                            className={`reactplayer`}
-                                            url={`https://vimeo.com/${vimeoID}`} // 506225501 //511696987 //width > 1480 ? '511696987' : '506225501'
-                                            playing={true}
-                                            loop={true}
-                                            controls={false}
-                                            muted={true}
-                                            config={{
-                                                youtube: {
-                                                    playerVars: { showinfo: 0, modestbranding: 0, rel: 0 }
-                                                }
-                                            }}
-                                        />)}
+                                        {vimeoID && width > 0 && (
+                                            <ReactPlayer
+                                                ref={player}
+                                                playsinline={true}
+                                                className={`reactplayer`}
+                                                url={`https://vimeo.com/${vimeoID}`}
+                                                playing={true}
+                                                loop={true}
+                                                controls={false}
+                                                muted={true}
+                                                config={{
+                                                    youtube: {
+                                                        playerVars: { showinfo: 0, modestbranding: 0, rel: 0 }
+                                                    }
+                                                }}
+                                            />)}
                                     </div>
                                 </div>
 
