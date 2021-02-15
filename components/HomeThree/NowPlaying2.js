@@ -255,8 +255,8 @@ const NowPlaying2 = React.memo(({ data }) => {
                                     autoplay
                                     t={`0m${progress.playedSeconds}`}
                                 />
-                                <Link href={`//www.youtube.com/watch?v=${videos[videoForPlayer.chidx].episodes[videoForPlayer.vididx].videoId}&t=0m${progress.playedSeconds}s`} passHref={true} prefetch={false}>
-                                    <a target="_blank" rel="noreferrer" className={`shadow btn btn-outline-dark `}>Youtube
+                                <Link href={`//www.youtube.com/watch?v=${videos[videoForPlayer.chidx].episodes[videoForPlayer.vididx].videoId}&t=0m${progress.playedSeconds}s`} passHref={true} prefetch={false} onClick={()=>setPlaying(false)}>
+                                    <a target="_blank" rel="noreferrer" className={`shadow btn btn-outline-dark `} onClick={()=>setPlaying(false)}>Youtube
                                         
                                     </a>
                                 </Link>
