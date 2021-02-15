@@ -24,6 +24,7 @@ function VideoAccordion({ data }) {
             display: flex;
             align-items: center;
             justify-content: center;
+            padding-top:50px;
         }
        .video-accordion div {
             width: ${width < 1450 ? '85%' : '50%'};

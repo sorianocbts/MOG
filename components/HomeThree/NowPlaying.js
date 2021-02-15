@@ -189,7 +189,7 @@ const NowPlaying = React.memo(({ data }) => {
                         <div className={`videoplay-wrapper d-flex align-items-center justify-content-center`}>
                             <div className={`chevron chevron-left btn btn-sm`} onClick={() => {let idx = playingIdx===0?5:playingIdx-1;setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><p><ChevronLeft /></p></div>
                             <div className={`videoplayer rounded`}>
-                                <h4 style={{textAlign: 'center', fontSize: '14px'}}>{videos[videoForPlayer.chidx].episodes[videoForPlayer.vididx].title.replace(`| Confessing the Faith`, ``)}</h4>
+                                <h4 className={`block`} style={{textAlign: 'center', fontSize: '14px', marginTop: `${width < 900? '14px': ''}`}}>{videos[videoForPlayer.chidx].episodes[videoForPlayer.vididx].title.replace(`| Confessing the Faith`, ``)}</h4>
                                 <ReactPlayer
                                 ref={player}
                                     width={`100%`}

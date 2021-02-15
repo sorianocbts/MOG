@@ -24,9 +24,7 @@ const MaminBanner = () => {
     }
     fonSizes()
     React.useLayoutEffect(() => {
-        console.log(width)
         if (width > 0) { width > 1480 ? setVimeoID('511696987') : setVimeoID('506225501') }
-        console.log(vimeoID)
     }, [width, vimeoID])
     return (
         <React.Fragment>

@@ -47,8 +47,8 @@ const Index3 = ({ data }) => {
             {/* <AwardWinningMovies /> */}
             {/* <LatestNews /> */}
             {/* <Partners /> */}
-            <VideoAccordion data={data} />
             <NowPlaying data={data} />
+            <VideoAccordion data={data} />
             <ContactForm />
             <Footer />
         </React.Fragment>
