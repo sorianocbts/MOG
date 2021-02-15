@@ -184,7 +184,7 @@ const NowPlaying = React.memo(({ data }) => {
                 <div className={`header-div rounded`}>
                     <h2>Now Playing</h2>
                 </div>
-                <div className={`nowplaying-div rounded`}>
+                <div className={`nowplaying-div rounded flex-shrink-0`}>
                     <div className={`left-column`}>
                         <div className={`videoplay-wrapper d-flex align-items-center justify-content-center`}>
                             <div className={`chevron chevron-left btn btn-sm`} onClick={() => {let idx = playingIdx===0?5:playingIdx-1;setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><p><ChevronLeft /></p></div>
