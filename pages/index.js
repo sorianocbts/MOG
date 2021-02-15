@@ -17,6 +17,7 @@ import VideoAccordion from '../components/HomeThree/VideoAccordion';
 import ContactForm from '../components/HomeThree/ContactForm';
 import { server } from '../config';
 import NowPlaying from '../components/HomeThree/NowPlaying';
+import NowPlaying2 from '../components/HomeThree/NowPlaying2';
 
 export async function getServerSideProps(context) {
     const res = await axios(`${server}/api/youtube`)
@@ -47,7 +48,8 @@ const Index3 = ({ data }) => {
             {/* <AwardWinningMovies /> */}
             {/* <LatestNews /> */}
             {/* <Partners /> */}
-            <NowPlaying data={data} />
+            <NowPlaying2 data={data} />
+            {/* <NowPlaying data={data} /> */}
             <VideoAccordion data={data} />
             <ContactForm />
             <Footer />

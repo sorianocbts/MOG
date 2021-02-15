@@ -64,6 +64,30 @@ body {
 	min-width: 355px;
 	background-color: black;
 }
+// Scrollbar
+/* width */
+::-webkit-scrollbar {
+width: 0px;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: none;
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+background: $brand-color;
+height: 80%;
+border-radius: 0 0 15px 15px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555;
+}
+// end scrollbar
 a {
 	display: inline-block;
     transition: $transition;
