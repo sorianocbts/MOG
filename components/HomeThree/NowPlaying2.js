@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link';
+import _ from 'lodash'
 import ModalVideo from 'react-modal-video'
 import ScrollableAnchor from 'react-scrollable-anchor'
 import useWindowSize from '../../hooks/useWindowSize'
@@ -29,15 +30,17 @@ const NowPlaying2 = React.memo(({ data }) => {
     }
 
     const _getVideoToPlay = React.useCallback(() => {
-        let chidx = 0//randomIntFromInterval(0, videos.length - 1)
+        let chidx = 4//randomIntFromInterval(0, videos.length - 1)
         let vididx = 0//randomIntFromInterval(0, videos[chidx].episodes.length - 1)
         return { chidx, vididx }
     })
     
      const _getVideoBlocks = () => {
         // return [_getVideoToPlay(), _getVideoToPlay(), _getVideoToPlay(), _getVideoToPlay(),_getVideoToPlay(),_getVideoToPlay()]
-
-        return videos[0].episodes.map((video, idx) => ({chidx:0, vididx:idx}))
+        // let chapterIndex = videos.length -2
+        // return videos[chapterIndex].episodes.map((video, idx) => ({chidx:chapterIndex, vididx:idx}))
+        return _.flatten(videos.map((chapter, chapteridx) => chapter.episodes.map((video, videoidx)=> ({chidx: chapteridx, vididx:videoidx})))).reverse()
+        
     }
     const [videosforBlocks, setVideosForBlocks] = React.useState(_getVideoBlocks())
     const [playingIdx, setPlayingIdx] = React.useState(0)
