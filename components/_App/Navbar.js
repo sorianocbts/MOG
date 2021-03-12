@@ -268,13 +268,17 @@ const Navbar = () => {
                                         </ul> 
                                     </li>*/}
                                     <li className="nav-item">
-                                        <Link href="#video-index" activeClassName="active" >
+                                        <Link href="/#video-index" activeClassName="active" >
                                             <a onClick={() => goToAnchor('video-index')} className="nav-link">Index</a>
                                         </Link>
                                     </li>
-
                                     <li className="nav-item">
-                                        <Link href="#contactForm" activeClassName="active" >
+                                        <Link href="/confession" activeClassName="active" >
+                                            <a className="nav-link">Confession</a>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link href="/#contactForm" activeClassName="active" >
                                             <a onClick={() => goToAnchor('contactForm')} className="nav-link">Contact</a>
                                         </Link>
                                     </li>
