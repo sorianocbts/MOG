@@ -14,9 +14,10 @@ const Confession = () => {
             <Navbar />
             <style jsx global>{`
             body {
-                background-color:#fff;
+                background-color:black;
             }
             .confession-container{
+                background-color:#fff;
                 padding: 10rem 4rem;
             }
             .font-light {
@@ -30,7 +31,7 @@ const Confession = () => {
                 color: #272B2B !important;
             }
             .ch-link:hover {
-                color: blue !important;
+                color: #fce14f !important;
                 text-decoration: underline;
             }
             `}
