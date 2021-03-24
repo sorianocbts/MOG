@@ -552,7 +552,7 @@ const LBCF = {
         },
         {
             "Chapter": "20",
-            "Title": "Of Christian Liberty and Liberty of Conscience",
+            "Title": "Of The Gospel and the Extent of Its Grace",
             "Sections": [
                 {
                     "Section": "1",
@@ -574,7 +574,7 @@ const LBCF = {
         },
         {
             "Chapter": "21",
-            "Title": "Of Christian Liberty and Liberty of Consciencey",
+            "Title": "Of Christian Liberty and Liberty of Conscience",
             "Sections": [
                 {
                     "Section": "1",
@@ -674,7 +674,7 @@ const LBCF = {
         },
         {
             "Chapter": "25",
-            "Title": "Of the Civil Magistrate",
+            "Title": "Of Marriage",
             "Sections": [
                 {
                     "Section": "1",
