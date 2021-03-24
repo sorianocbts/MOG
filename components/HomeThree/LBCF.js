@@ -112,7 +112,7 @@ const LBCF = {
                 },
                 {
                     "Section": "3",
-                    "Content": "In this divine and infinite Being there are three subsistences, the Father the Word (or Son) and Holy Spirit, of one substance, power, and Eternity, each having the whole Divine Essence, yet the Essence undivided, the Father is of none neither begotten nor proceeding, the Son is Eternally begotten of the Father, the holy Spirit proceeding from the Father and the Son, all infinite, without beginning, therefore but one God, who is not to be divided in nature and Being; but distinguished by several peculiar, relative properties, and personal relations; which doctrine of the Trinity is the foundation of all our Communion with God, and comfortable dependance on him."
+                    "Content": "In this divine and infinite Being there are three subsistences, the Father the Word (or Son) and Holy Spirit, of one substance, power, and Eternity, each having the whole Divine Essence, yet the Essence undivided, the Father is of none neither begotten nor proceeding, the Son is Eternally begotten of the Father, the Holy Spirit proceeding from the Father and the Son, all infinite, without beginning, therefore but one God, who is not to be divided in nature and Being; but distinguished by several peculiar, relative properties, and personal relations; which doctrine of the Trinity is the foundation of all our Communion with God, and comfortable dependance on him."
                 }
             ]
         },
@@ -238,7 +238,7 @@ const LBCF = {
                 },
                 {
                     "Section": "2",
-                    "Content": "Moreover Man having brought himself under the curse of the Law by his fall, it pleased the Lord to make a Covenant of Grace wherein he freely offereth unto Sinners, Life and Salvation by Jesus Christ, requiring of them Faith in him, that they may be saved; and promising to give unto all those that are ordained unto eternal Life, his holy Spirit, to make them willing, and able to believe."
+                    "Content": "Moreover Man having brought himself under the curse of the Law by his fall, it pleased the Lord to make a Covenant of Grace wherein he freely offereth unto Sinners, Life and Salvation by Jesus Christ, requiring of them Faith in him, that they may be saved; and promising to give unto all those that are ordained unto eternal Life, his Holy Spirit, to make them willing, and able to believe."
                 },
                 {
                     "Section": "3",
@@ -328,7 +328,7 @@ const LBCF = {
                 },
                 {
                     "Section": "2",
-                    "Content": "This Effectual Call is of God's free, and special grace alone, not from any thing at all foreseen in man, nor from any power, or agency in the Creature, coworking with his special Grace, the Creature being wholly passive therein, being dead in sins and trespasses, until being quickned & renewed by the holy Spirit, he is thereby enabled to answer this call, and to embrace the Grace offered and conveyed in it; and that by no less power, then that which raised up Christ from the dead."
+                    "Content": "This Effectual Call is of God's free, and special grace alone, not from any thing at all foreseen in man, nor from any power, or agency in the Creature, coworking with his special Grace, the Creature being wholly passive therein, being dead in sins and trespasses, until being quickned & renewed by the Holy Spirit, he is thereby enabled to answer this call, and to embrace the Grace offered and conveyed in it; and that by no less power, then that which raised up Christ from the dead."
                 },
                 {
                     "Section": "3",
@@ -490,7 +490,7 @@ const LBCF = {
                 },
                 {
                     "Section": "3",
-                    "Content": "And though they may through the temptation of Satan and of the world, the prevalency of corruption remaining in them, and the neglect of means of their preservation fall into grievous sins, and for a time continue therein; whereby they incur Gods displeasure, and grieve his holy Spirit, come to have their graces and comforts impaired have their hearts hardened, and their Consciences wounded, hurt, and scandalize others, and bring temporal judgements upon themselves: yet they shall renew their repentance and be preserved through faith in Christ Jesus to the end."
+                    "Content": "And though they may through the temptation of Satan and of the world, the prevalency of corruption remaining in them, and the neglect of means of their preservation fall into grievous sins, and for a time continue therein; whereby they incur Gods displeasure, and grieve his Holy Spirit, come to have their graces and comforts impaired have their hearts hardened, and their Consciences wounded, hurt, and scandalize others, and bring temporal judgements upon themselves: yet they shall renew their repentance and be preserved through faith in Christ Jesus to the end."
                 }
             ]
         },
@@ -508,7 +508,7 @@ const LBCF = {
                 },
                 {
                     "Section": "3",
-                    "Content": "This infallible assurance doth not so belong to the essence of faith, but that a true Believer, may wait long and conflict with many difficulties before he be partaker of it; yet being enabled by the Spirit to know the things which are freely given him of God, he may without extraordinary revelation in the right use of means attain thereunto: and therefore it is the duty of every one, to give all diligence to make their Calling and Election sure, that thereby his heart may be enlarged in peace and joy in the holy Spirit, in love and thankfulness to God, and in strength and chearfulness in the duties of obedience, the proper fruits of this Assurance; so far is it from inclining men to looseness."
+                    "Content": "This infallible assurance doth not so belong to the essence of faith, but that a true Believer, may wait long and conflict with many difficulties before he be partaker of it; yet being enabled by the Spirit to know the things which are freely given him of God, he may without extraordinary revelation in the right use of means attain thereunto: and therefore it is the duty of every one, to give all diligence to make their Calling and Election sure, that thereby his heart may be enlarged in peace and joy in the Holy Spirit, in love and thankfulness to God, and in strength and chearfulness in the duties of obedience, the proper fruits of this Assurance; so far is it from inclining men to looseness."
                 },
                 {
                     "Section": "4",
