@@ -346,7 +346,7 @@ const LBCF = {
             "Sections": [
                 {
                     "Section": "1",
-                    "Content": "Those whom God Effectually calleth, he also freely justifieth, not by infusing Righteousness into them, but by pardoning their sins, and by accounting, and accepting their Persons as Righteous; not for any thing wrought in them, or done by them, but for Christ's sake alone, not by imputing faith it self, the act of beleiving, or any other evangelical obedience to them, as their Righteousness; but by imputing Christs active obedience unto the whole Law, and passive obedience in his death, for their whole and sole Righteousnnss, they receiving, and resting on him, and his Righteousness, by Faith; which faith they have not of themselves, it is the gift of God."
+                    "Content": "Those whom God Effectually calleth, he also freely justifieth, not by infusing Righteousness into them, but by pardoning their sins, and by accounting, and accepting their Persons as Righteous; not for any thing wrought in them, or done by them, but for Christ's sake alone, not by imputing faith it self, the act of beleiving, or any other evangelical obedience to them, as their Righteousness; but by imputing Christs active obedience unto the whole Law, and passive obedience in his death, for their whole and sole Righteousness, they receiving, and resting on him, and his Righteousness, by Faith; which faith they have not of themselves, it is the gift of God."
                 },
                 {
                     "Section": "2",
@@ -354,7 +354,7 @@ const LBCF = {
                 },
                 {
                     "Section": "3",
-                    "Content": "Christ by his obedience, and death, did fully discharge the debt of all those that are justified; and did by the sacrifice of himself, in the blood of his cross, undergoing in their stead, the penalty due unto them: make a proper, real and full satisfaction to Gods justice in their behalf: yet in asmuch as he was given by the Father for them, and his Obedience and Satisfaction accepted in their stead, and both freely, not for any thing in them; their Justification is only of Free Grace, that both the exact justice and rich Grace of God, might be glorified in the Justification of sinners."
+                    "Content": "Christ by his obedience, and death, did fully discharge the debt of all those that are justified; and did by the sacrifice of himself, in the blood of his cross, undergoing in their stead, the penalty due unto them: make a proper, real and full satisfaction to God's justice in their behalf: yet in asmuch as he was given by the Father for them, and his Obedience and Satisfaction accepted in their stead, and both freely, not for any thing in them; their Justification is only of Free Grace, that both the exact justice and rich Grace of God, might be glorified in the Justification of sinners."
                 },
                 {
                     "Section": "4",
@@ -366,7 +366,7 @@ const LBCF = {
                 },
                 {
                     "Section": "6",
-                    "Content": "The Justification of Believers under the Old Testament was in all these respects, one and the same with the justification of Believers under the New Tement."
+                    "Content": "The Justification of Believers under the Old Testament was in all these respects, one and the same with the justification of Believers under the New Testament."
                 }
             ]
         },
