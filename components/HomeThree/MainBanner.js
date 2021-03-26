@@ -1,12 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
 // import ModalVideo from 'react-modal-video';
+import { Spinner } from 'react-bootstrap'
 import ReactPlayer from 'react-player/vimeo'
 import useWindowSize from '../../hooks/useWindowSize'
 import { ArrowDownCircle } from 'react-feather';
 import { goToAnchor } from 'react-scrollable-anchor'
 const MaminBanner = () => {
     const player = React.useRef(null)
+    const [playerState, setPlayerState] = React.useState(null)
     // const [playerOpacity, setPlayerOpacity] = React.useState(0);
     const [isOpen, setIsOpen] = React.useState(true);
     const openModal = () => {
@@ -27,10 +29,9 @@ const MaminBanner = () => {
     fonSizes()
     React.useLayoutEffect(() => {
         if (width > 0) { width > 1480 ? setVimeoID('511696987') : setVimeoID('506225501') }
-    }, [width, vimeoID,])
-    // React.useEffect(() => {
-    // }, [player.current])
-    // console.log(player.current ? player.current.wrapper.attributes : null)
+    }, [width, vimeoID])
+    React.useLayoutEffect(() => {
+    }, [player])
     return (
         <React.Fragment>
             <div className="banner-area jarallax" style={{ minHeight: '900px' }}>
@@ -89,8 +90,17 @@ const MaminBanner = () => {
 
                                 <div className="col-lg-9 right-col">
                                     <div className="banner-video" style={{ pointerEvents: 'none' }}>
+                                        {!player.current && !playerState && (
+                                            <>
+                                                <div className={`loading`} style={{ position: 'absolute', top: '40%', left: '50%' }}><h1 className={`text-light`}>Loading</h1>
+                                                    <Spinner animation="grow" variant="warning" style={{ color: '#fce14f !important', width: '4rem', height: '4rem' }} />
+                                                </div>
+
+                                            </>
+                                        )}
                                         {vimeoID && width > 0 && (
                                             <ReactPlayer
+                                                onReady={() => setPlayerState(true)}
                                                 ref={player}
                                                 playsinline={true}
                                                 className={`reactplayer`}

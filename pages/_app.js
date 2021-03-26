@@ -1,3 +1,7 @@
+import Router from 'next/router';
+import NProgress from 'nprogress'; //nprogress module
+import 'nprogress/nprogress.css'; //styles of nprogress
+
 import '../public/css/bootstrap.min.css'
 import '../public/css/animate.css'
 import '../public/css/boxicons.min.css'
@@ -12,6 +16,10 @@ import '../public/css/responsive.css'
 import { Provider } from 'react-redux'
 import Layout from '../components/_App/Layout'
 import { useStore } from '../store/reducers/reducers'
+//Binding events. 
+Router.events.on('routeChangeStart', () => NProgress.start());
+Router.events.on('routeChangeComplete', () => NProgress.done());
+Router.events.on('routeChangeError', () => NProgress.done());
 
 const MyApp = ({ Component, pageProps }) => {
     const store = useStore(pageProps.initialReduxState)
