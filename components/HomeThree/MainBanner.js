@@ -93,7 +93,7 @@ const MaminBanner = () => {
                                         {!player.current && !playerState && (
                                             <>
                                                 <div className={`loading`} style={{ position: 'absolute', top: '40%', left: '50%' }}><h1 className={`text-light`}>Loading</h1>
-                                                    <Spinner animation="grow" variant="warning" style={{ color: '#fce14f !important', width: '4rem', height: '4rem' }} />
+                                                    <Spinner animation="grow" variant="warning" style={{ color: '#fce14f !important', width: '3rem', height: '3rem' }} />
                                                 </div>
 
                                             </>
