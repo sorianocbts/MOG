@@ -27,6 +27,9 @@ const Confession = () => {
                 font-size: 13px !important;
                 color: blue !important;
             }
+            .paragraphs {
+                font-family: 'Lora', serif !important;
+            }
             .ch-link {
                 color: #272B2B !important;
             }
@@ -76,8 +79,10 @@ const Confession = () => {
                                 <h2 className={`text-center`}>{chapter["Title"]}</h2>
                                 {chapter["Sections"].map((paragraph, paragraphIndex) => (
                                     <>
-                                        <div className={`mb-4`} key={paragraphIndex}>
-                                            <p><span className={`font-weight-bold mr-2`}>{paragraph["Section"]}</span>{paragraph["Content"]}</p>
+                                        <div className={`mb-4 paragraphs`} key={paragraphIndex}>
+                                            {/* <p><span className={`font-weight-bold mr-2`}>{paragraph["Section"]}</span>{paragraph["Content"]}</p> */}
+                                            <div className="content paragraphs" dangerouslySetInnerHTML={{ __html: paragraph[0] }}></div>
+                                            <div className="content paragraphs" dangerouslySetInnerHTML={{ __html: paragraph[1] }}></div>
                                         </div>
 
                                     </>
