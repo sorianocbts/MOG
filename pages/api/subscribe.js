@@ -13,9 +13,10 @@ function ctfSub(event) {
             from: process.env.EMAIL,
             to: [`${process.env.SUBS_EMAIL}`],
             subject: `Request to Subscribe from confessingthefaith.com`,
-            html: `<p>${event.user.fname}<br/>
-                         <p>${event.user.lname}<br/>
-                        ${event.user.email}<br/>
+            html: `<p>First Name: ${event.user.first_name}<br/>
+                    <p>Last Name: ${event.user.last_name}<br/>
+                    <p>Email Address: ${event.user.email}<br/>
+                    
                     </p>`
         },
         function (error, info) {

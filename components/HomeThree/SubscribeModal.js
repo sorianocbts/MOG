@@ -6,7 +6,7 @@ import useForm from '../../hooks/useForm';
 
 const SubscribeModal = (props) => {
     const [user, handleChange] = useForm({ fname: "", lname: '', email: "" });
-
+    const [formCheck, setFormCheck] = React.useState(false)
     const handleSubmit = (e) => {
         e.preventDefault()
         async function postData() {
@@ -130,15 +130,20 @@ const SubscribeModal = (props) => {
                     <Form onSubmit={(e) => handleSubmit(e)}>
                         <Row>
                             <Col sm="6" className={`input-padding-right`} >
-                                <Form.Control className={`transparent`} name="fname" value={user.fname} onChange={handleChange} type="text" placeholder="First Name" />
+                                <Form.Control className={`transparent`} name="first_name" value={user.fname} onChange={handleChange} type="text" placeholder="First Name" />
                             </Col>
                             <Col sm="6" className={`input-padding-left`}>
-                                <Form.Control className={`transparent`} name="lname" value={user.lname} onChange={handleChange} type="text" placeholder="Last Name" />
+                                <Form.Control className={`transparent`} name="last_name" value={user.lname} onChange={handleChange} type="text" placeholder="Last Name" />
                             </Col>
                         </Row>
                         <Row>
                             <Col sm="12">
-                                <Form.Control className={`transparent`} name="email" value={user.email} onChange={handleChange} type="email" placeholder="Email" />
+                                <Form.Control className={`transparent`} name="email" value={user.email} onChange={handleChange} type="email" placeholder="Email" required />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col sm="12">
+                                <Form.Check className={`transparent`} name="check" checked={formCheck} onChange={() => setFormCheck(!formCheck)} type="checkbox" label="I wish to receive emails from CBTS" required style={{ letterSpacing: '1px' }} />
                             </Col>
                         </Row>
                         <Row>
