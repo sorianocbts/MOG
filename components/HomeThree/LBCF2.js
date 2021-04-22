@@ -1872,13 +1872,13 @@ const content = [
                 {
                     superscript: 1,
                     text:
-                        "Good works are only such as God has commanded in his Holy Word,",
+                        "Good works are only such as God hath commanded in his Holy Word,",
                     scriptures: "Mic. 6:8; Heb. 13:21",
                 },
                 {
                     superscript: 2,
                     text:
-                        "and not such as without the warrant thereof are devised by men out of blind zeal, or upon any pretense of good intentions.",
+                        "and not such as without the warrant thereof are devised by men out of blind zeal, or upon any pretence of good intentions.",
                     scriptures: "Matt. 15:9; Isa. 29:13",
                 },
             ],
@@ -1906,7 +1906,7 @@ const content = [
                 },
                 {
                     superscript: 7,
-                    text: "stop the mouths of the adversaries, and glory God,",
+                    text: "stop the mouths of the adversaries, and glorify God,",
                     scriptures: "1 Tim. 6:1; 1 Pet. 2:15; Phil. 1:11",
                 },
                 {
@@ -1926,19 +1926,19 @@ const content = [
                 {
                     superscript: 10,
                     text:
-                        "Their ability to do good works is not all of themselves, but wholly from the Spirit of Christ;",
+                        "Their ability to do good works is not at all of themselves, but wholly from the Spirit of Christ;",
                     scriptures: "John 15:4-5",
                 },
                 {
                     superscript: 11,
                     text:
-                        "and that they may be enabled thereunto, besides the graces they have already received, there is necessary an actual influence of the same Holy Spirit, to work in them and to will and to do of his good pleasure;",
+                        "and that they may be enabled thereunto, besides the graces they have already received, there is necessary an actual influence of the same Holy Spirit, to work in them to will and to do of his good pleasure;",
                     scriptures: "2 Cor. 3:5; Phil. 2:13",
                 },
                 {
                     superscript: 12,
                     text:
-                        " yet they are not bound to perform any duty, unless upon a special motion of the Spirit, but they ought to be diligent in stirring up the grace of God that is in them.",
+                        "yet they are not hereupon to grow negligent, as if they were not bound to perform any duty, unless upon a special motion of the Spirit, but they ought to be diligent in stirring up the grace of God that is in them.",
                     scriptures: "Phil. 2:12; Heb. 6:11, 12; Isa. 64:7",
                 },
             ],
@@ -1960,13 +1960,13 @@ const content = [
                 {
                     superscript: 15,
                     text:
-                        "but when we have done all we can, we have done but our duty, and are unprofitable servants; and because they are good they proceed from his Spirit,",
+                        "but when we have done all we can, we have done but our duty, and are unprofitable servants; and because as they are good they proceed from his Spirit,",
                     scriptures: "Gal. 5:22-23",
                 },
                 {
                     superscript: 16,
                     text:
-                        "and as they are wrought by us they are defiled and mixed with so much weekness and imperfection, that they cannot endure the severity of God’s punishment.",
+                        "and as they are wrought by us they are defiled and mixed with so much weakness and imperfection, that they cannot endure the severity of God’s punishment.",
                     scriptures: "Isa. 64:6; Ps. 43:2",
                 },
             ],
@@ -1980,7 +1980,7 @@ const content = [
                 {
                     superscript: 18,
                     text:
-                        "not as thought they were in this life wholly unblamable and unreprovable in God’s sight, but that he, looking upon them in his Son, is pleased to accept and reward that which is sincere, although accompanied with many weaknesses and imperfection.",
+                        "not as though they were in this life wholly unblameable and unreprovable in God’s sight, but that he, looking upon them in his Son, is pleased to accept and reward that which is sincere, although accompanied with many weaknesses and imperfections.",
                     scriptures: "Matt. 25:21, 23; Heb. 6:10",
                 },
             ],
@@ -1988,7 +1988,7 @@ const content = [
                 {
                     superscript: 19,
                     text:
-                        "Works done by unregenerate men, although for the matter of them they may things which God commands, and of good use both to themselves and to others;",
+                        "Works done by unregenerate men, although for the matter of them they may be things which God commands, and of good use both to themselves and others;",
                     scriptures: "2 Kings 10:30; 1 Kings 21:27, 29",
                 },
                 {
@@ -2009,7 +2009,7 @@ const content = [
                 {
                     superscript: 23,
                     text:
-                        "they are therfore sinful, and cannot please God, nor make a man meet to receive the grace from God,",
+                        "they are therefore sinful, and cannot please God, nor make a man meet to receive grace from God,",
                     scriptures: "Amos 5:21-22; Rom. 9:16; Titus 3:5",
                 },
                 {
@@ -2734,6 +2734,7 @@ const content = [
                     superscript: "",
                     text:
                         "and is to be continued to the end of the world as the Christian Sabbath, the observation of the last day of the week being abolished.",
+                    scriptures: ""
                 },
             ],
             [

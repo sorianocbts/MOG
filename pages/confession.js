@@ -101,7 +101,7 @@ const Confession = () => {
                                     <>
                                         <div className={`mb-4 paragraphs`} key={paragraphIndex}>
                                             <div className="content paragraphs" dangerouslySetInnerHTML={{ __html: `<p key=${paragraphIndex}}>${paragraphIndex + 1}. ${formatParagraph(chapterIndex, paragraphIndex).finalParagraph}</p>` }}></div>
-                                            <div className="content paragraphs mt5" style={{ paddingLeft: '30px' }} dangerouslySetInnerHTML={{ __html: `<p key=${paragraphIndex + 99}}>${formatParagraph(chapterIndex, paragraphIndex).finalParagraphScriptureRefs}.</p>` }}></div>
+                                            <div className="content paragraphs mt5" style={{ paddingLeft: '30px' }} dangerouslySetInnerHTML={{ __html: `<p key=${paragraphIndex + 99}}>${(formatParagraph(chapterIndex, paragraphIndex).finalParagraphScriptureRefs !== "") && formatParagraph(chapterIndex, paragraphIndex).finalParagraphScriptureRefs}.</p>` }}></div>
                                         </div>
                                     </>
                                 ))}
