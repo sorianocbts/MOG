@@ -95,7 +95,7 @@ const content = [
   Luke,
   John,
   The Acts of the Apostles,
-  Paul's Epistleto the Romans,
+  Paul's Epistle to the Romans,
   I Corinthians,
   II Corinthians,
   Galatians,
@@ -114,7 +114,7 @@ const content = [
   The first, second, and third Epistles of John,
   The Epistle of Jude,
   The Revelation. <br/>
-  <p style="padding-left: 0px">All of which are given by the inspiration of God, to be the rule of faith ad life.`,
+  <p style="padding-left: 0px">All of which are given by the inspiration of God, to be the rule of faith and life.`,
                     ],
                     scriptures: "2 Timothy 3:16",
                 },
@@ -893,6 +893,7 @@ const content = [
         chapterContent: [
             [
                 {
+                    superscript: 1,
                     text:
                         "The distance between God and the creature is so great, that although reasonable creatures do owe obedience to Him as their creator, yet they could never have attained the reward of life but by some voluntary condescension on God's part, which He hath been pleased to express by way of covenant.",
                     scriptures: "Luke 17:10; Job 35:7–8",
@@ -900,7 +901,7 @@ const content = [
             ],
             [
                 {
-                    superscript: 1,
+                    superscript: 2,
                     text:
                         "Moreover, man having brought himself under the curse of the law by his fall, it pleased the Lord to make a covenant of grace,",
                     scriptures: "Gen. 2:17; Gal. 3:10; Rom. 3:20-21",
@@ -908,13 +909,13 @@ const content = [
             ],
             [
                 {
-                    superscript: 2,
+                    superscript: 3,
                     text:
                         "wherein He freely offers unto sinners life and salvation by Jesus Christ, requiring of them faith in Him, that they may be saved;",
                     scriptures: "Rom. 5:12-19; 1 Cor. 15:21-22, 45, 49",
                 },
                 {
-                    superscript: 3,
+                    superscript: 4,
                     text:
                         "and promising to give unto all those that are ordained unto eternal life, His Holy Spirit, to make them willing and able to believe.",
                     scriptures: "Ezek. 36:26-27; John 6:44-45; Ps. 110:3",
@@ -922,25 +923,25 @@ const content = [
             ],
             [
                 {
-                    superscript: 4,
+                    superscript: 5,
                     text:
                         "This covenant is revealed in the gospel; first of all to Adam in the promise of salvation by the seed of the woman,",
                     scriptures: "Gen. 3:15",
                 },
                 {
-                    superscript: 5,
+                    superscript: 6,
                     text:
                         "and afterwards by farther steps, until the full discovery thereof was completed in the New Testament;",
                     scriptures: "Heb. 1:1",
                 },
                 {
-                    superscript: 6,
+                    superscript: 7,
                     text:
                         "and it is founded in that eternal covenant transaction that was between the Father and the Son about the redemption of the elect;",
                     scriptures: "2 Tim. 1:9; Titus 1:2",
                 },
                 {
-                    superscript: 7,
+                    superscript: 8,
                     text:
                         "and it is alone by the grace of this covenant that all the posterity of fallen Adam that ever were saved did obtain life and blessed immortality, man being now utterly incapable of acceptance with God upon those terms on which Adam stood in his state of innocency. ",
                     scriptures: "Heb. 11:6, 13; Rom. 4:1-2, &c.; Acts 4:12; John 8:56",

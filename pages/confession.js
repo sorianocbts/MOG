@@ -22,11 +22,11 @@ const Confession = () => {
         let paragraphs = getParagraphs(chapterIndex)
         // console.log(paragraphs.length)
         let finalParagraph = paragraphs[paragraphIndex].map((line, lineIndex) => `${line.text} <sup>${line.superscript}</sup>`).join(' ');
-        let finalParagraphScriptureRefs = paragraphs[paragraphIndex].map((line, lineIndex) => `<sup>${line.superscript}</sup>${line.scriptures}`).join(' ');
+        let finalParagraphScriptureRefs = paragraphs[paragraphIndex].map((line, lineIndex) => `<sup>${line.superscript}</sup>${line.scriptures}`).join(' ').replace("<sup></sup>undefined", "");
         return { finalParagraph, finalParagraphScriptureRefs }
 
     }
-    console.log(formatParagraph(0, 0))
+    console.log(formatParagraph(4, 2).finalParagraphScriptureRefs.replace("<sup></sup>undefined", ""))
     return (
         <>
             <Navbar />
