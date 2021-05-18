@@ -99,13 +99,14 @@ const _transformVideoObject = (videos) => {
 
     let titles = videos.map(vid => {
         return { title: vid.snippet.title.trim().split("1689")[1], videoId: vid.id }
-    })
+    }).reverse()
 
     let ch = 1
     let result = [{ chapter: ch, episodes: [] }]
+
     for (let idx in titles) {
         let title = titles[idx].title
-        if (title.includes(`${ch}:`)) {
+        if (title.includes(` ${ch}:`)) {
             result.find(chap => chap.chapter === ch).episodes.push(titles[idx])
         }
         else {
@@ -151,3 +152,4 @@ const LBCFChapters = {
     "Chapter 31": "The State of Humanity after Death and the Resurrection of the Dead",
     "Chapter 32": "The Last Judgment",
 }
+
