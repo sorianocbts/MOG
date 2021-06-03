@@ -49,7 +49,7 @@ const Navbar = () => {
                         <nav className="navbar navbar-expand-lg">
                             <Link href="/">
                                 <a onClick={toggleNavbar} className="navbar-brand">
-                                    <img src="/img/banner/moglogo.png" alt="logo" />
+                                    <img src="/img/banner/moglogo.png" alt="logo" style={{ maxHeight: "90px" }} />
                                     <h1>Man of God Network</h1>
                                     {/* <img style={{ marginLeft: '8px', minWidth: '105px', height: '30px' }} src="/img/banner/ctfheader.png" alt="logo" /> */}
                                 </a>
