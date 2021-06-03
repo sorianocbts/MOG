@@ -1,7 +1,7 @@
 version: '3'
 services:
-  ctf:
-    container_name: ctf
+  mog:
+    container_name: mog
     environment:
       - EMAIL=${EMAIL}
       - EMAIL_PASS=${EMAIL_PASS}
@@ -14,8 +14,8 @@ services:
     restart: always
 #     volumes: ['./:/var/www/html']
     environment:
-      VIRTUAL_HOST: confessingthefaith.com, www.confessingthefaith.com
-      LETSENCRYPT_HOST: confessingthefaith.com, www.confessingthefaith.com
+      VIRTUAL_HOST: manofgodnetwork.com, www.manofgodnetwork.com
+      LETSENCRYPT_HOST: manofgodnetwork.com, www.manofgodnetwork.com
       LETSENCRYPT_EMAIL: soriano@cbtseminary.org
 networks:
   default:

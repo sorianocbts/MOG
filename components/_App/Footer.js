@@ -38,7 +38,7 @@ const Footer = () => {
                             <div className="single-widget">
                                 <div className="logo">
                                     <Link href="/">
-                                        <a><img className={`footer-logo`} src="/img/banner/ctffooter.png" alt="Image" /></a>
+                                        <a><img className={`footer-logo`} src="/img/banner/moglogowhite.png" alt="Image" /></a>
                                     </Link>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@ const Footer = () => {
                                     </li>
                                     <li>
                                         <i className="flaticon-email-1"></i>
-                                        <a href="mailto:info@confessingthefaith.com">info@confessingthefaith.com</a>
+                                        <a href="mailto:info@manofgodnetwork.com">info@manofgodnetwork.com</a>
                                     </li>
                                     <li>
                                         <i className="flaticon-phone-call"></i>

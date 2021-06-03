@@ -45,7 +45,7 @@ const SidebarModal = () => {
 
 						<li>
 							<i className="flaticon-email-1"></i>
-							<a href="mailto:info@confessingthefaith.com">info@confessingthefaith.com</a>
+							<a href="mailto:info@manofgodnetwork.com">info@manofgodnetwork.com</a>
 						</li>
 
 						<li>

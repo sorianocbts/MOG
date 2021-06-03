@@ -50,7 +50,8 @@ const Navbar = () => {
                             <Link href="/">
                                 <a onClick={toggleNavbar} className="navbar-brand">
                                     <img src="/img/banner/moglogo.png" alt="logo" />
-                                    <img style={{ marginLeft: '8px', minWidth: '105px', height: '30px' }} src="/img/banner/ctfheader.png" alt="logo" />
+                                    <h1>Man of God Network</h1>
+                                    {/* <img style={{ marginLeft: '8px', minWidth: '105px', height: '30px' }} src="/img/banner/ctfheader.png" alt="logo" /> */}
                                 </a>
                             </Link>
 
@@ -269,12 +270,12 @@ const Navbar = () => {
                                     </li>*/}
                                     <li className="nav-item">
                                         <Link href="/#video-index" activeClassName="active" >
-                                            <a onClick={() => goToAnchor('video-index')} className="nav-link">Index</a>
+                                            <a onClick={() => goToAnchor('video-index')} className="nav-link">About</a>
                                         </Link>
                                     </li>
                                     <li className="nav-item">
                                         <Link href="/confession" activeClassName="active" >
-                                            <a className="nav-link">Confession</a>
+                                            <a className="nav-link">Podcasts</a>
                                         </Link>
                                     </li>
                                     <li className="nav-item">

@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link';
+import _ from 'lodash'
 import ModalVideo from 'react-modal-video'
 import ScrollableAnchor from 'react-scrollable-anchor'
 import useWindowSize from '../../hooks/useWindowSize'
@@ -29,13 +30,17 @@ const NowPlaying = React.memo(({ data }) => {
     }
 
     const _getVideoToPlay = React.useCallback(() => {
-        let chidx = randomIntFromInterval(0, videos.length - 1)
-        let vididx = randomIntFromInterval(0, videos[chidx].episodes.length - 1)
+        let chidx = 4//randomIntFromInterval(0, videos.length - 1)
+        let vididx = 0//randomIntFromInterval(0, videos[chidx].episodes.length - 1)
         return { chidx, vididx }
     })
     
      const _getVideoBlocks = () => {
-        return [_getVideoToPlay(), _getVideoToPlay(), _getVideoToPlay(), _getVideoToPlay(),_getVideoToPlay(),_getVideoToPlay()]
+        // return [_getVideoToPlay(), _getVideoToPlay(), _getVideoToPlay(), _getVideoToPlay(),_getVideoToPlay(),_getVideoToPlay()]
+        // let chapterIndex = videos.length -2
+        // return videos[chapterIndex].episodes.map((video, idx) => ({chidx:chapterIndex, vididx:idx}))
+        return _.flatten(videos.map((chapter, chapteridx) => chapter.episodes.map((video, videoidx)=> ({chidx: chapteridx, vididx:videoidx})))).reverse()
+        
     }
     const [videosforBlocks, setVideosForBlocks] = React.useState(_getVideoBlocks())
     const [playingIdx, setPlayingIdx] = React.useState(0)
@@ -170,11 +175,33 @@ const NowPlaying = React.memo(({ data }) => {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;  
+                // justify-content: center;  
+                height: ${width < 900? '350px' : '400px'};
+                overflow: scroll;
+            }
+            /* width */
+            ::-webkit-scrollbar {
+            width: 5px;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+            background: #888;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+            background: #555;
             }
             .btn-blocks {
                 width: ${width < 900? '65%' : '95%'};
                 min-width: 280px;
+                
             }
             
             `}
@@ -187,7 +214,7 @@ const NowPlaying = React.memo(({ data }) => {
                 <div className={`nowplaying-div rounded flex-shrink-0`}>
                     <div className={`left-column`}>
                         <div className={`videoplay-wrapper d-flex align-items-center justify-content-center`}>
-                            <div className={`chevron chevron-left btn btn-sm`} onClick={() => {let idx = playingIdx===0?5:playingIdx-1;setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><p><ChevronLeft /></p></div>
+                            <div className={`chevron chevron-left btn btn-sm`} onClick={() => {let idx = playingIdx===0?videosforBlocks.length-1:playingIdx-1;setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><p><ChevronLeft /></p></div>
                             <div className={`videoplayer rounded`}>
                                 <h4 className={`block`} style={{textAlign: 'center', fontSize: '14px', marginTop: `${width < 900? '14px': ''}`}}>{videos[videoForPlayer.chidx].episodes[videoForPlayer.vididx].title.replace(`| Confessing the Faith`, ``)}</h4>
                                 <ReactPlayer
@@ -218,7 +245,7 @@ const NowPlaying = React.memo(({ data }) => {
                                  <div className={`btn-sm videoplayer-volume `} onClick={()=> setMuted(!muted)}>{muted? <Volume2 width={'18px'}/>:<VolumeX width={'18px'}/>}</div>
                                  </div>
                             </div>
-                            <div className={`chevron chevron-right btn btn-sm`} onClick={() => {let idx = playingIdx===5?0:playingIdx+1;setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><p><ChevronRight /></p></div>
+                            <div className={`chevron chevron-right btn btn-sm`} onClick={() => {let idx = playingIdx===videosforBlocks.length-1?0:playingIdx+1;setPlayingIdx(idx);setVideoForPlayer(videosforBlocks[idx])}}><p><ChevronRight /></p></div>
                         </div>
                         <div className={`videobuttons d-flex`}>
                             <div className={`btns my-3 d-flex justify-content-between`}>
@@ -229,9 +256,10 @@ const NowPlaying = React.memo(({ data }) => {
                                     videoId={`${videos[videoForPlayer.chidx].episodes[videoForPlayer.vididx].videoId}`}
                                     onClose={() => setIsOpen(!isOpen)} 
                                     autoplay
+                                    t={`0m${progress.playedSeconds}`}
                                 />
-                                <Link href={`//www.youtube.com/watch?v=${videos[videoForPlayer.chidx].episodes[videoForPlayer.vididx].videoId}`} passHref={true} prefetch={false}>
-                                    <a target="_blank" rel="noreferrer" className={`shadow btn btn-outline-dark `}>Youtube
+                                <Link href={`//www.youtube.com/watch?v=${videos[videoForPlayer.chidx].episodes[videoForPlayer.vididx].videoId}&t=0m${progress.playedSeconds}s`} passHref={true} prefetch={false} onClick={()=>setPlaying(false)}>
+                                    <a target="_blank" rel="noreferrer" className={`shadow btn btn-outline-dark `} onClick={()=>setPlaying(false)}>Youtube
                                         
                                     </a>
                                 </Link>
@@ -265,64 +293,6 @@ export default NowPlaying
 
 function randomIntFromInterval(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-const _transformVideoObject = (videos) => {
-
-
-    let titles = videos.map(vid => {
-        return { title: vid.snippet.title.trim().split("1689")[1], videoId: vid.id }
-    })
-
-    let ch = 1
-    let result = [{ chapter: ch, episodes: [] }]
-    for (let idx in titles) {
-        let title = titles[idx].title
-        if (title.includes(`${ch}:`)) {
-            result.find(chap => chap.chapter === ch).episodes.push(titles[idx])
-        }
-        else {
-            ch++
-            result.push({ chapter: ch, episodes: [] })
-            result.find(chap => chap.chapter === ch).episodes.push(titles[idx])
-        }
-    }
-    return result
-}
-
-const LBCFChapters = {
-    "Chapter 1": "The Holy Scriptures",
-    "Chapter 2": "God and the Holy Trinity",
-    "Chapter 3": "God's Decree",
-    "Chapter 4": "Creation",
-    "Chapter 5": "Divine Providence",
-    "Chapter 6": "The Fall of Mankind, and Sin and Its Punishment",
-    "Chapter 7": "God's Covenant",
-    "Chapter 8": "Christ the Mediator",
-    "Chapter 9": "Free Will",
-    "Chapter 10": "Effectual Calling",
-    "Chapter 11": "Justification",
-    "Chapter 12": "Adoption",
-    "Chapter 13": "Sanctification",
-    "Chapter 14": "Saving Faith",
-    "Chapter 15": "Repentance to Life and Salvation",
-    "Chapter 16": "Good Works",
-    "Chapter 17": "The Perseverance of the Saints",
-    "Chapter 18": "Assurance of Grace and Salvation",
-    "Chapter 19": "The Law of God",
-    "Chapter 20": "The Gospel and the Extent of Its Grace",
-    "Chapter 21": "Christian Liberty and Liberty of Conscience",
-    "Chapter 22": "Religious Worship and the Sabbath Day",
-    "Chapter 23": "Lawful Oaths and Vows",
-    "Chapter 24": "Civil Government",
-    "Chapter 25": "Marriage",
-    "Chapter 26": "The Church",
-    "Chapter 27": "The Communion of Saints",
-    "Chapter 28": "Baptism and the Lord's Supper",
-    "Chapter 29": "Baptism",
-    "Chapter 30": "The Lord's Supper",
-    "Chapter 31": "The State of Humanity after Death and the Resurrection of the Dead",
-    "Chapter 32": "The Last Judgment",
 }
 
 function truncate(str, max) {

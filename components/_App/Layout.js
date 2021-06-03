@@ -7,13 +7,13 @@ const Layout = ({ children }) => {
     return (
         <React.Fragment>
             <Head>
-                <title>Confessing the Faith</title>
+                <title>Man of God Network</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-                <meta name="description" content="Confessing the Faith" />
-                <meta name="og:title" property="og:title" content="Confessing the Faith"></meta>
-                <meta name="twitter:card" content="Confessing the Faith"></meta>
-                <link rel="canonical" href="https://confessingthefaith.com"></link>
-                <meta property="og:image" content="https://confessingthefaith.com" />
+                <meta name="description" content="Man of God Network" />
+                <meta name="og:title" property="og:title" content="Man of God Network"></meta>
+                <meta name="twitter:card" content="Man of God Network"></meta>
+                <link rel="canonical" href="https://manofgodnetwork.com"></link>
+                <meta property="og:image" content="https://manofgodnetwork.com" />
             </Head>
 
             {children}

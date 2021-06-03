@@ -7,9 +7,8 @@ module.exports = {
         EMAIL_PASS: process.env.EMAIL_PASS,
         TEMP_POST_PASS: process.env.TEMP_POST_PASS,
         SUBS_EMAIL: process.env.SUBS_EMAIL,
-        PLAYLISTID: process.env.PLAYLISTID,
-        YTAPIKEY: process.env.YTAPIKEY,
-        NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID
+        NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
+        FEEDURL: process.env.FEEDURL
     },
     sassOptions: {
         includePaths: [path.join(__dirname, 'styles')],

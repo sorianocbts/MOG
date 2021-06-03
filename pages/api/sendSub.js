@@ -12,7 +12,7 @@ function ctfSub(event) {
         {
             from: process.env.EMAIL,
             to: [`${process.env.SUBS_EMAIL}`],
-            subject: `Contact from confessingthefaith.com`,
+            subject: `Contact from manofgodnetwork.com`,
             html: `<p>${event.user.name}.<br/>
                         ${event.user.email}.<br/>
                         ${event.user.phone_number}.<br/>
